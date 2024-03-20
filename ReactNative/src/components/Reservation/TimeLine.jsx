@@ -16,19 +16,6 @@ const createTimeSlots = () => {
 
 function TimeLine() {
   const [timeSlots, setTimeSlots] = useState(createTimeSlots());
-  const [selectedRoom, setSelectedRoom] = useState('A');
-
-  const rooms = ['A', 'B', 'C', 'D', 'E'];
-  const renderRoomButtons = () => (
-    rooms.map((room) => (
-      <Button
-        key={room}
-        title={`Room ${room}`}
-        onPress={() => setSelectedRoom(room)}
-        color={selectedRoom === room ? 'blue' : 'grey'}
-      />
-    ))
-  );
 
   const toggleSelection = (index) => {
     const updatedSlots = timeSlots.map((slot, i) => {
