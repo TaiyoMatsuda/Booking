@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {
-  Text, FlatList, TouchableOpacity, StyleSheet, Button,
+  Text, FlatList, TouchableOpacity, StyleSheet,
 } from 'react-native';
 
 const createTimeSlots = () => {
@@ -11,7 +11,6 @@ const createTimeSlots = () => {
     slots.push({ id: i, time: `${hour}:${minute}`, isSelected: false });
   }
   return slots;
-
 };
 
 function TimeLine() {
