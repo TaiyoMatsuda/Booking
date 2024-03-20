@@ -1,10 +1,17 @@
-import { View, Text } from 'react-native';
+import { useState } from 'react';
+import {
+  SafeAreaView, View, Text, FlatList, TouchableOpacity, StyleSheet, Alert
+} from 'react-native';
+import {
+  ExpandableCalendar, AgendaList, CalendarProvider,
+} from 'react-native-calendars';
+import TimeLine from '../../components/Reservation/TimeLine';
 
 function ReservationScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Reservation Screen in dir</Text>
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <TimeLine />
+    </SafeAreaView>
   );
 }
 
