@@ -1,47 +1,11 @@
-import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-function HomeScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
-
-function ReservationScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Reservation Screen</Text>
-    </View>
-  );
-}
-
-function HistoryScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>History Screen</Text>
-    </View>
-  );
-}
-
-function QRScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>QR Screen</Text>
-    </View>
-  );
-}
-
-function UserScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>User Screen</Text>
-    </View>
-  );
-}
+import HistoryScreen from './src/screens/History/HistoryScreen';
+import HomeScreen from './src/screens/Home/HomeScreen';
+import QRScreen from './src/screens/QR/QRScreen';
+import ReservationScreen from './src/screens/Reservation/ReservationScreen';
+import UserScreen from './src/screens/User/UserScreen';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
@@ -50,8 +14,6 @@ const HistoryStack = createNativeStackNavigator();
 const QRStack = createNativeStackNavigator();
 const UserStack = createNativeStackNavigator();
 
-const Stack = createNativeStackNavigator();
-
 function App() {
   return (
     <NavigationContainer>
@@ -59,7 +21,11 @@ function App() {
         <Tab.Screen name="Home">
           {() => (
             <HomeStack.Navigator>
-              <HomeStack.Screen name="Home" component={HomeScreen} />
+              <HomeStack.Screen
+                name="HomeScreen"
+                component={HomeScreen}
+                options={{ headerShown: false }}
+              />
             </HomeStack.Navigator>
           )}
         </Tab.Screen>
@@ -67,8 +33,9 @@ function App() {
           {() => (
             <ReservationStack.Navigator>
               <ReservationStack.Screen
-                name="Reservation"
+                name="ReservationScreen"
                 component={ReservationScreen}
+                options={{ headerShown: false }}
               />
             </ReservationStack.Navigator>
           )}
@@ -76,21 +43,33 @@ function App() {
         <Tab.Screen name="History">
           {() => (
             <HistoryStack.Navigator>
-              <HistoryStack.Screen name="History" component={HistoryScreen} />
+              <HistoryStack.Screen
+                name="HistoryScreen"
+                component={HistoryScreen}
+                options={{ headerShown: false }}
+              />
             </HistoryStack.Navigator>
           )}
         </Tab.Screen>
         <Tab.Screen name="QR">
           {() => (
             <QRStack.Navigator>
-              <QRStack.Screen name="QR" component={QRScreen} />
+              <QRStack.Screen
+                name="QRScreen"
+                component={QRScreen}
+                options={{ headerShown: false }}
+              />
             </QRStack.Navigator>
           )}
         </Tab.Screen>
         <Tab.Screen name="User">
           {() => (
             <UserStack.Navigator>
-              <UserStack.Screen name="User" component={UserScreen} />
+              <UserStack.Screen
+                name="UserScreen"
+                component={UserScreen}
+                options={{ headerShown: false }}
+              />
             </UserStack.Navigator>
           )}
         </Tab.Screen>
