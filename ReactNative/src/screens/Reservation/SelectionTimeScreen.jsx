@@ -9,16 +9,16 @@ import TimeLine from '../../components/Reservation/TimeLine';
 import RoomSelect from '../../components/Reservation/RoomSelect';
 import Button from '../../components/Common/Button';
 
-function ReservationScreen({ navigation }) {
+function SelectionTimeScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Reservation Screen in dir</Text>
+    <SafeAreaView style={{ flex: 1 }}>
+      <RoomSelect />
+      <TimeLine />
       <Button
-        label="Go to Time Selection"
-        onPress={() => navigation.navigate('SelectionTimeScreen')}
+        label="OK"
       />
-    </View>
+    </SafeAreaView>
   );
 }
 
-export default ReservationScreen;
+export default SelectionTimeScreen;

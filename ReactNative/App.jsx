@@ -5,6 +5,7 @@ import HistoryScreen from './src/screens/History/HistoryScreen';
 import HomeScreen from './src/screens/Home/HomeScreen';
 import QRScreen from './src/screens/QR/QRScreen';
 import ReservationScreen from './src/screens/Reservation/ReservationScreen';
+import SelectionTimeScreen from './src/screens/Reservation/SelectionTimeScreen';
 import UserScreen from './src/screens/User/UserScreen';
 
 const Tab = createBottomTabNavigator();
@@ -35,6 +36,11 @@ function App() {
               <ReservationStack.Screen
                 name="ReservationScreen"
                 component={ReservationScreen}
+                options={{ headerShown: false }}
+              />
+              <ReservationStack.Screen
+                name="SelectionTimeScreen"
+                component={SelectionTimeScreen}
                 options={{ headerShown: false }}
               />
             </ReservationStack.Navigator>
