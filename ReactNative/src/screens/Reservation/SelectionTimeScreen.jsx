@@ -11,13 +11,13 @@ import Button from '../../components/Common/Button';
 
 function SelectionTimeScreen({ navigation }) {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <View style={{ flex: 1 }}>
       <RoomSelect />
       <TimeLine />
       <Button
         label="OK"
       />
-    </SafeAreaView>
+    </View>
   );
 }
 
