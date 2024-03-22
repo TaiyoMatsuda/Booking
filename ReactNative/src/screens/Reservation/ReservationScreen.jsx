@@ -7,13 +7,13 @@ import {
 } from 'react-native-calendars';
 import TimeLine from '../../components/Reservation/TimeLine';
 import RoomSelect from '../../components/Reservation/RoomSelect';
-import Button from '../../components/Common/Button';
+import WideButton from '../../components/Common/WideButton';
 
 function ReservationScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Reservation Screen in dir</Text>
-      <Button
+      <WideButton
         label="Go to Time Selection"
         onPress={() => navigation.navigate('SelectionTimeScreen')}
       />
