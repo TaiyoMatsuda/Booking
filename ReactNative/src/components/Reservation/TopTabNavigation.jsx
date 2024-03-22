@@ -5,7 +5,16 @@ import TimeLine from './TimeLine';
 
 const TopTab = createMaterialTopTabNavigator();
 
-function TopTabNavigation({ navigation }) {
+function TopTabNavigation() {
+  const [tabs] = useState([
+    { key: 'tab1', title: 'Room1', component: TimeLine },
+    { key: 'tab2', title: 'Room2', component: TimeLine },
+    { key: 'tab3', title: 'Room3', component: TimeLine },
+    { key: 'tab4', title: 'Room4', component: TimeLine },
+    { key: 'tab5', title: 'Room5', component: TimeLine },
+    { key: 'tab6', title: 'Room6', component: TimeLine },
+  ]);
+
   return (
     <View style={{ flex: 1 }}>
       <TopTab.Navigator
@@ -14,12 +23,13 @@ function TopTabNavigation({ navigation }) {
           tabBarLabelStyle: { fontSize: 12 },
         }}
       >
-        <TopTab.Screen name="Room1" component={TimeLine} />
-        <TopTab.Screen name="Room2" component={TimeLine} />
-        <TopTab.Screen name="Room3" component={TimeLine} />
-        <TopTab.Screen name="Room4" component={TimeLine} />
-        <TopTab.Screen name="Room5" component={TimeLine} />
-        <TopTab.Screen name="Room6" component={TimeLine} />
+        {tabs.map((tab) => (
+          <TopTab.Screen
+            key={tab.key}
+            name={tab.title}
+            component={tab.component}
+          />
+        ))}
       </TopTab.Navigator>
     </View>
   );
