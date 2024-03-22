@@ -1,8 +1,4 @@
-import { useState } from 'react';
 import { Alert, View, StyleSheet } from 'react-native';
-import {
-  ExpandableCalendar, AgendaList, CalendarProvider,
-} from 'react-native-calendars';
 import TopTabNavigation from '../../components/Reservation/TopTabNavigation';
 import WideButton from '../../components/Common/WideButton';
 import HalfWideButton from '../../components/Common/HalfWideButton';
