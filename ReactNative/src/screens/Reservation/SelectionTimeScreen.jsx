@@ -42,23 +42,6 @@ function SelectionTimeScreen({ navigation }) {
     );
   };
 
-  const onPressBackButton = () => {
-    Alert.alert(
-      'アラートを出しました',
-      'テキストテキストテキストテキスト',
-      [
-        {
-          text: 'Cancel',
-          onPress: () => console.log('アラートのcancelをタップした時の挙動を書く'),
-          style: 'cancel',
-        },
-        {
-          text: 'OK', onPress: () => console.log('アラートのOKをタップした時の挙動を書く'),
-        },
-      ],
-    );
-  };
-
   return (
     <View style={{ flex: 1 }}>
       <TopTabNavigation />
