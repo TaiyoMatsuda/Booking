@@ -16,30 +16,23 @@ function AppContent() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // const checkSignInStatus = async () => {
-    //   try {
-    //     const signedInStatus = await AsyncStorage.getItem('isSignedIn');
-    //     console.log('checkSignInStatus');
-    //     console.log(JSON.stringify(signedInStatus));
-    //     if (signedInStatus === 'true') {
-    //       console.log('signedInStatus === true');
-    //       //setUser(true);
-    //     } else {
-    //       console.log('signedInStatus === false');
-    //       //setUser(false);
-    //     }
-    //   } catch (error) {
-    //     console.error('Failed to fetch the sign-in status:', error);
-    //     //setUser(false);
-    //   }
-    // };
+    const checkSignInStatus = async () => {
+      try {
+        const signedInStatus = await AsyncStorage.getItem('isSignedIn');
+        if (signedInStatus === 'true') {
+          setUser(true);
+        } else {
+          setUser(false);
+        }
+      } catch (error) {
+        setUser(false);
+      }
+    };
 
-    // checkSignInStatus();
-    setUser(false);
+    checkSignInStatus();
   }, []);
 
   useEffect(() => {
-    console.log('useEffect');
     setUser(isSignedIn);
   }, [isSignedIn]);
 
