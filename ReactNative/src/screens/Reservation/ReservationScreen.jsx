@@ -1,7 +1,4 @@
-import { useState } from 'react';
-import {
-  SafeAreaView, View, Text, FlatList, TouchableOpacity, StyleSheet, Alert,
-} from 'react-native';
+import { View, Text } from 'react-native';
 import WideButton from '../../components/Common/WideButton';
 
 function ReservationScreen({ navigation }) {

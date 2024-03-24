@@ -1,26 +1,17 @@
-import { NavigationContainer } from '@react-navigation/native';
 import {
-  SafeAreaView, Platform, StatusBar, StyleSheet,
+  SafeAreaView, Platform, StyleSheet,
 } from 'react-native';
-import { RecoilRoot } from 'recoil';
-import MainNavigation from './src/navigation/MainNavigation';
+import { RecoilRoot, useRecoilValue, useRecoilState } from 'recoil';
+import { useState, useEffect } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import signInStatus from './src/recoil/signInStatus';
+import AppContent from './AppContext';
 
 function App() {
   return (
     <RecoilRoot>
-      <SafeAreaView style={styles.safeArea}>
-        <NavigationContainer>
-          <MainNavigation />
-        </NavigationContainer>
-      </SafeAreaView>
+      <AppContent />
     </RecoilRoot>
   );
 }
 export default App;
-
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-  },
-});
