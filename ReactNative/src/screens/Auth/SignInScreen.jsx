@@ -10,13 +10,12 @@ import HalfWideButton from '../../components/Common/HalfWideButton';
 
 // import AppBar from '../components/AppBar';
 
-export default function SignInScreen({ navigation }) {
+export default function SignInScreen() {
   const setSignInStatus = useSetRecoilState(signInStatus);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const logInWithEmailAndPassword = async () => {
-    console.log('SignInScreen');
     await AsyncStorage.setItem('isSignedIn', JSON.stringify(true));
     setSignInStatus(true);
   };
