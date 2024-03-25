@@ -1,20 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import {
   Text, FlatList, TouchableOpacity, StyleSheet,
 } from 'react-native';
+import { timeSlotsStatus } from '../../recoil/timeSlotsStatus';
 
-const createTimeSlots = () => {
-  const slots = [];
-  for (let i = 0; i < 24 * 2; i++) {
-    const hour = Math.floor(i / 2);
-    const minute = i % 2 === 0 ? '00' : '30';
-    slots.push({ id: i, time: `${hour}:${minute}`, isSelected: false });
-  }
-  return slots;
-};
+const createTimeSlots = () => Array
+  .from({ length: 24 * 2 }, (_, index) => {
+    const hour = String(Math.floor(index / 2)).padStart(2, '0');
+    const minute = index % 2 === 0 ? '00' : '30';
+    return { id: index, time: `${hour}:${minute}`, isSelected: false };
+  });
 
 function TimeLine() {
+  const setClear = useSetRecoilState(timeSlotsStatus);
+  const isClear = useRecoilValue(timeSlotsStatus);
   const [timeSlots, setTimeSlots] = useState(createTimeSlots());
+
+  useEffect(() => {
+    const updatedSlots = timeSlots.map((slot) => ({
+      ...slot,
+      isSelected: false,
+    }));
+    setTimeSlots(updatedSlots);
+    setClear(false);
+  }, [isClear, setClear]);
 
   const toggleSelection = (index) => {
     const updatedSlots = timeSlots.map((slot, i) => {

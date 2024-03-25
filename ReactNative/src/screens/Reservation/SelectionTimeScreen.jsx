@@ -1,9 +1,13 @@
+import { useEffect } from 'react';
 import { Alert, View, StyleSheet } from 'react-native';
+import { useSetRecoilState } from 'recoil';
 import TopTabNavigation from '../../components/Reservation/TopTabNavigation';
 import WideButton from '../../components/Common/WideButton';
 import HalfWideButton from '../../components/Common/HalfWideButton';
+import { timeSlotsStatus } from '../../recoil/timeSlotsStatus';
 
 function SelectionTimeScreen({ navigation }) {
+  const setClear = useSetRecoilState(timeSlotsStatus);
   const onPressOKButton = () => {
     Alert.alert(
       'アラートを出しました',
@@ -22,20 +26,7 @@ function SelectionTimeScreen({ navigation }) {
   };
 
   const onPressClearButton = () => {
-    Alert.alert(
-      'アラートを出しました',
-      'テキストテキストテキストテキスト',
-      [
-        {
-          text: 'Cancel',
-          onPress: () => console.log('アラートのcancelをタップした時の挙動を書く'),
-          style: 'cancel',
-        },
-        {
-          text: 'OK', onPress: () => console.log('アラートのOKをタップした時の挙動を書く'),
-        },
-      ],
-    );
+    setClear(true);
   };
 
   return (
