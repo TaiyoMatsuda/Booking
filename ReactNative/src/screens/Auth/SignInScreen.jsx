@@ -8,8 +8,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import signInStatus from '../../recoil/signInStatus';
 import HalfWideButton from '../../components/Common/HalfWideButton';
 
-// import AppBar from '../components/AppBar';
-
 export default function SignInScreen() {
   const setSignInStatus = useSetRecoilState(signInStatus);
   const [email, setEmail] = useState('');
