@@ -1,12 +1,11 @@
-import { useEffect } from 'react';
 import { Alert, View, StyleSheet } from 'react-native';
 import { useSetRecoilState } from 'recoil';
-import TopTabNavigation from '../../components/Reservation/TopTabNavigation';
+import TimeLineGrid from '../../components/Reservation/TimeLineGrid';
 import WideButton from '../../components/Common/WideButton';
 import HalfWideButton from '../../components/Common/HalfWideButton';
 import { timeSlotsStatus } from '../../recoil/timeSlotsStatus';
 
-function SelectionTimeScreen({ navigation }) {
+function TimeSelectionScreen({ navigation }) {
   const setClear = useSetRecoilState(timeSlotsStatus);
   const onPressOKButton = () => {
     Alert.alert(
@@ -31,7 +30,7 @@ function SelectionTimeScreen({ navigation }) {
 
   return (
     <View style={{ flex: 1 }}>
-      <TopTabNavigation />
+      <TimeLineGrid />
       <WideButton
         label="OK"
         onPress={onPressOKButton}
@@ -57,4 +56,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SelectionTimeScreen;
+export default TimeSelectionScreen;

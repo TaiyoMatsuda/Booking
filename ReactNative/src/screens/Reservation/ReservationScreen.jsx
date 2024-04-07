@@ -7,7 +7,7 @@ function ReservationScreen({ navigation }) {
       <Text>Reservation Screen in dir</Text>
       <WideButton
         label="Go to Time Selection"
-        onPress={() => navigation.navigate('SelectionTimeScreen')}
+        onPress={() => navigation.navigate('TimeSelectionScreen')}
       />
     </View>
   );

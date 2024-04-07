@@ -3,8 +3,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HistoryScreen from '../screens/History/HistoryScreen';
 import HomeScreen from '../screens/Home/HomeScreen';
 import QRScreen from '../screens/QR/QRScreen';
+import TimeSelectionScreen from '../screens/Reservation/TimeSelectionScreen';
 import ReservationScreen from '../screens/Reservation/ReservationScreen';
-import SelectionTimeScreen from '../screens/Reservation/SelectionTimeScreen';
 import UserScreen from '../screens/User/UserScreen';
 
 const Tab = createBottomTabNavigator();
@@ -37,8 +37,8 @@ function MainNavigation() {
               options={{ headerShown: false }}
             />
             <ReservationStack.Screen
-              name="SelectionTimeScreen"
-              component={SelectionTimeScreen}
+              name="TimeSelectionScreen"
+              component={TimeSelectionScreen}
               options={{ headerShown: false }}
             />
           </ReservationStack.Navigator>
