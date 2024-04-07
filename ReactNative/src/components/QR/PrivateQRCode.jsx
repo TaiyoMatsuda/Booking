@@ -6,7 +6,7 @@ export default function PrivateQRCode() {
     <View style={styles.container}>
       <Text>QRコード</Text>
       <QRCode
-        value='golf-booking-test-private-qrß'
+        value="golf-booking-test-private-qr"
         size={300}
       />
     </View>
