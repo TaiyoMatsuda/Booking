@@ -3,10 +3,10 @@ import {
   SafeAreaView, View, Text,
   TextInput, StyleSheet,
 } from 'react-native';
+import { Chip } from 'react-native-paper';
 import { useSetRecoilState } from 'recoil';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import signInStatus from '../../recoil/signInStatus';
-import HalfWideButton from '../../components/Common/HalfWideButton';
 
 export default function SignInScreen() {
   const setSignInStatus = useSetRecoilState(signInStatus);
@@ -42,12 +42,14 @@ export default function SignInScreen() {
           placeholder="Password"
           textContentType="password"
         />
-        <HalfWideButton
-          label="Sign In"
+        <Chip
+          mode="outlined"
           onPress={() => {
             logInWithEmailAndPassword();
           }}
-        />
+        >
+          Sign In
+        </Chip>
       </View>
     </SafeAreaView>
   );

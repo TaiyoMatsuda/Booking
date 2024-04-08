@@ -1,14 +1,16 @@
 import { View, Text } from 'react-native';
-import WideButton from '../../components/Common/WideButton';
+import { Chip } from 'react-native-paper';
 
 function ReservationScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Reservation Screen in dir</Text>
-      <WideButton
-        label="Go to Time Selection"
-        onPress={() => navigation.navigate('TimeSelectionScreen')}
-      />
+      <Chip
+        mode="outlined"
+        onPress={() => { navigation.navigate('TimeSelectionScreen'); }}
+      >
+        Go to Time Selection
+      </Chip>
     </View>
   );
 }

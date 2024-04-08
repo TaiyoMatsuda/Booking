@@ -1,5 +1,6 @@
 import { View, Text } from 'react-native';
-import HalfWideButton from '../../components/Common/HalfWideButton';
+import { Chip } from 'react-native-paper';
+
 import PrivateQRCode from '../../components/QR/PrivateQRCode';
 
 function QRScreen({ navigation }) {
@@ -7,10 +8,9 @@ function QRScreen({ navigation }) {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>QR Screen in dir</Text>
       <PrivateQRCode />
-      <HalfWideButton
-        label="Home"
-        onPress={() => navigation.navigate('Home')}
-      />
+      <Chip mode="outlined" onPress={() => navigation.navigate('Home')}>
+        Home
+      </Chip>
     </View>
   );
 }

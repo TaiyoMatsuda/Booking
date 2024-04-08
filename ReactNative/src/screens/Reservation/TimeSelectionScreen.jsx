@@ -1,8 +1,7 @@
 import { Alert, View, StyleSheet } from 'react-native';
 import { useSetRecoilState } from 'recoil';
+import { Chip } from 'react-native-paper';
 import TimeLineGrid from '../../components/Reservation/TimeLineGrid';
-import WideButton from '../../components/Common/WideButton';
-import HalfWideButton from '../../components/Common/HalfWideButton';
 import { timeSlotsStatus } from '../../recoil/timeSlotsStatus';
 
 function TimeSelectionScreen({ navigation }) {
@@ -31,19 +30,16 @@ function TimeSelectionScreen({ navigation }) {
   return (
     <View style={{ flex: 1 }}>
       <TimeLineGrid />
-      <WideButton
-        label="OK"
-        onPress={onPressOKButton}
-      />
+      <Chip mode="outlined" onPress={onPressOKButton}>
+        OK
+      </Chip>
       <View style={styles.container}>
-        <HalfWideButton
-          label="Clear"
-          onPress={onPressClearButton}
-        />
-        <HalfWideButton
-          label="Back"
-          onPress={() => navigation.goBack()}
-        />
+        <Chip mode="outlined" onPress={onPressClearButton}>
+          Clear
+        </Chip>
+        <Chip mode="outlined" onPress={() => navigation.goBack()}>
+          Back
+        </Chip>
       </View>
     </View>
   );

@@ -1,23 +1,20 @@
 import { View, Text } from 'react-native';
-import HalfWideButton from '../../components/Common/HalfWideButton';
+import { Chip } from 'react-native-paper';
 
 function HomeScreen({ navigation }) {
   const userName = 'test';
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>{`Hello, ${userName}!`}</Text>
-      <HalfWideButton
-        label="Reservation"
-        onPress={() => navigation.navigate('Reservation')}
-      />
-      <HalfWideButton
-        label="History"
-        onPress={() => navigation.navigate('History')}
-      />
-      <HalfWideButton
-        label="QR"
-        onPress={() => navigation.navigate('QR')}
-      />
+      <Chip mode="outlined" onPress={() => navigation.navigate('Reservation')}>
+        Reservation
+      </Chip>
+      <Chip mode="outlined" onPress={() => navigation.navigate('History')}>
+        History
+      </Chip>
+      <Chip mode="outlined" onPress={() => navigation.navigate('QR')}>
+        QR
+      </Chip>
     </View>
   );
 }
