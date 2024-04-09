@@ -18,7 +18,7 @@ function UserScreen({ navigation }) {
           <Text>残り時間: 10H</Text>
         </Card.Content>
         <Card.Actions>
-          <Button onPress={() => navigation.navigate('Home')}>
+          <Button onPress={() => navigation.navigate('SelectionPlanScreen')}>
             プランの変更
           </Button>
         </Card.Actions>

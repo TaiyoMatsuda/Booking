@@ -6,6 +6,7 @@ import QRScreen from '../screens/QR/QRScreen';
 import TimeSelectionScreen from '../screens/Reservation/TimeSelectionScreen';
 import ReservationScreen from '../screens/Reservation/ReservationScreen';
 import UserScreen from '../screens/User/UserScreen';
+import SelectionPlanScreen from '../screens/User/SelectionPlanScreen';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
@@ -72,6 +73,11 @@ function MainNavigation() {
             <UserStack.Screen
               name="UserScreen"
               component={UserScreen}
+              options={{ headerShown: false }}
+            />
+            <UserStack.Screen
+              name="SelectionPlanScreen"
+              component={SelectionPlanScreen}
               options={{ headerShown: false }}
             />
           </UserStack.Navigator>
