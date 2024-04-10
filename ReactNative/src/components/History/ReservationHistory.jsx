@@ -11,7 +11,7 @@ import {
 } from 'react-native-paper';
 
 export default function ReservationHistory({ reservation }) {
-  const onPressOKButton = () => {
+  const onPressCancelButton = () => {
     Alert.alert(
       'キャンセルしますか？',
       '',
@@ -42,7 +42,7 @@ export default function ReservationHistory({ reservation }) {
         <View>
           {
             reservation.is_cancel
-              ? <IconButton icon="cancel" iconColor={MD3Colors.error50} size={40} onPress={onPressOKButton} />
+              ? <IconButton icon="cancel" iconColor={MD3Colors.error50} size={40} onPress={onPressCancelButton} />
               : <IconButton icon="check" size={40} />
           }
         </View>
