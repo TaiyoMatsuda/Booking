@@ -20,7 +20,10 @@ function AppContent() {
   useEffect(() => {
     const checkSignInStatus = async () => {
       try {
+        console.log('checkSignInStatus-satrt:isSignedIn' + JSON.stringify(isSignedIn));
         const signedInStatus = await AsyncStorage.getItem('isSignedIn');
+        console.log('checkSignInStatus-end:signedInStatus' + JSON.stringify(signedInStatus));
+
         if (signedInStatus === 'true') {
           setUser(true);
         } else {
@@ -37,6 +40,7 @@ function AppContent() {
   }, []);
 
   useEffect(() => {
+    console.log('useEffect:' + JSON.stringify(isSignedIn));
     setUser(isSignedIn);
   }, [isSignedIn]);
 

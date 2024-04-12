@@ -8,12 +8,17 @@ import {
   Chip,
   Text,
 } from 'react-native-paper';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import ReservationButton from '../../components/Home/ReservationButton';
 import NextReservationCard from '../../components/Home/NextReservationCard';
 import HistoryButton from '../../components/Home/HistoryButton';
 import QRButton from '../../components/Home/QRButton';
+import signInStatus from '../../recoil/signInStatus';
 
 function HomeScreen({ navigation }) {
+  const isSignedIn = useRecoilValue(signInStatus);
+  const setSignInStatus = useSetRecoilState(signInStatus);
   const [reservation] = useState(
     {
       id: '1',
@@ -42,11 +47,32 @@ function HomeScreen({ navigation }) {
     );
   };
 
+  const LogOut = async () => {
+    console.log('LogOut:' + JSON.stringify(isSignedIn));
+    await AsyncStorage.setItem('isSignedIn', JSON.stringify(false));
+    setSignInStatus(false);
+  };
+
+  const onPressLogOutButton = () => {
+    Alert.alert(
+      'Log outしますか？',
+      '',
+      [
+        {
+          text: '閉じる',
+        },
+        {
+          text: 'Log Out', onPress: LogOut,
+        },
+      ],
+    );
+  };
+
   return (
     <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
       <View style={styles.container}>
         <Text variant="headlineMedium">{`Hello, ${userName}!`}</Text>
-        <Chip icon="logout" mode="outlined" onPress={() => console.log('Pressed')}>Log out</Chip>
+        <Chip icon="logout" mode="outlined" onPress={onPressLogOutButton}>Log out</Chip>
       </View>
       <ReservationButton onPress={() => navigation.navigate('Reservation')} />
       <Text variant="headlineMedium">次回予約</Text>
