@@ -11,6 +11,7 @@ import {
   CheckBox,
   Card,
 } from '@rneui/themed';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -25,12 +26,10 @@ function SelectionPlan({ navigation }) {
           <Text style={styles.title}>First Item</Text>
           <Text style={styles.detail}>10:00 AM - 2:00 PM</Text>
           <Text style={styles.price}>$100</Text>
-          <CheckBox
-            title="Sub"
-            checked={selectedIndex === 0}
-            checkedIcon="dot-circle-o"
-            uncheckedIcon="circle-o"
-            onPress={() => setIndex(0)}
+          <Icon
+            name={selectedIndex === 0 ? 'dot-circle-o' : 'circle-o'}
+            size={24}
+            color={selectedIndex === 0 ? 'blue' : 'grey'}
           />
         </Card>
       </TouchableOpacity>
@@ -39,12 +38,10 @@ function SelectionPlan({ navigation }) {
           <Text style={styles.title}>Second Item</Text>
           <Text style={styles.detail}>10:00 AM - 2:00 PM</Text>
           <Text style={styles.price}>$100</Text>
-          <CheckBox
-            title="Sub"
-            checked={selectedIndex === 1}
-            checkedIcon="dot-circle-o"
-            uncheckedIcon="circle-o"
-            onPress={() => setIndex(1)}
+          <Icon
+            name={selectedIndex === 1 ? 'dot-circle-o' : 'circle-o'}
+            size={24}
+            color={selectedIndex === 1 ? 'blue' : 'grey'}
           />
         </Card>
       </TouchableOpacity>
@@ -53,23 +50,20 @@ function SelectionPlan({ navigation }) {
           <Text style={styles.title}>Third Item</Text>
           <Text style={styles.detail}>10:00 AM - 2:00 PM</Text>
           <Text style={styles.price}>$100</Text>
-          <CheckBox
-            title="Sub"
-            checked={selectedIndex === 2}
-            checkedIcon="dot-circle-o"
-            uncheckedIcon="circle-o"
-            onPress={() => setIndex(2)}
+          <Icon
+            name={selectedIndex === 2 ? 'dot-circle-o' : 'circle-o'}
+            size={24}
+            color={selectedIndex === 2 ? 'blue' : 'grey'}
           />
         </Card>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => setIndex(3)}>
         <Card>
-          <CheckBox
-            title="一時停止"
-            checked={selectedIndex === 3}
-            checkedIcon="dot-circle-o"
-            uncheckedIcon="circle-o"
-            onPress={() => setIndex(3)}
+          <Text style={styles.title}>一時停止</Text>
+          <Icon
+            name={selectedIndex === 3 ? 'dot-circle-o' : 'circle-o'}
+            size={24}
+            color={selectedIndex === 3 ? 'blue' : 'grey'}
           />
         </Card>
       </TouchableOpacity>
