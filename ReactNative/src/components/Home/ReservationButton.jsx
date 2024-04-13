@@ -1,21 +1,18 @@
-import {
-  Card,
-  Text,
-} from 'react-native-paper';
+import { TouchableOpacity } from 'react-native';
+import { Text, Card } from '@rneui/themed';
 
 function ReservationButton({ onPress }) {
   return (
-    <Card
-      mode="outlined"
-      style={{ alignItems: 'center', width: '80%' }}
-      onPress={onPress}
-    >
-      <Card.Content>
-        <Text variant="titleLarge">
-          MAKE A RESERVATION
+    <TouchableOpacity onPress={onPress}>
+      <Card
+        mode="outlined"
+        style={{ alignItems: 'center', width: '80%' }}
+      >
+        <Text h3>
+          新規予約
         </Text>
-      </Card.Content>
-    </Card>
+      </Card>
+    </TouchableOpacity>
   );
 }
 

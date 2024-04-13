@@ -4,11 +4,9 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
-import {
-  Divider,
-  MD3Colors,
-  IconButton,
-} from 'react-native-paper';
+import { Divider } from '@rneui/themed';
+import Icon from 'react-native-vector-icons/AntDesign';
+import CloseButton from '../Common/CloseButton';
 
 export default function ReservationHistory({ reservation }) {
   const onPressCancelButton = () => {
@@ -42,8 +40,8 @@ export default function ReservationHistory({ reservation }) {
         <View>
           {
             reservation.is_cancel
-              ? <IconButton icon="cancel" iconColor={MD3Colors.error50} size={40} onPress={onPressCancelButton} />
-              : <IconButton icon="check" size={40} />
+              ? <CloseButton size={40} onPress={onPressCancelButton} />
+              : <Icon name="check" size={40} color="green" />
           }
         </View>
       </View>

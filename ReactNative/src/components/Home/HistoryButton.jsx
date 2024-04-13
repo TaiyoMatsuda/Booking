@@ -1,17 +1,15 @@
-import {
-  Card,
-  Icon,
-  Text,
-} from 'react-native-paper';
+import { Card } from '@rneui/themed';
+import { TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 function HistoryButton({ onPress }) {
   return (
-    <Card mode="outlined" onPress={onPress}>
-      <Card.Content style={{ alignItems: 'center' }}>
-        <Text variant="titleLarge">履歴</Text>
-        <Icon source="clock-outline" size={100} />
-      </Card.Content>
-    </Card>
+    <TouchableOpacity onPress={onPress}>
+      <Card>
+        <Card.Title h4>履歴</Card.Title>
+        <Icon name="clockcircleo" size={75} />
+      </Card>
+    </TouchableOpacity>
   );
 }
 

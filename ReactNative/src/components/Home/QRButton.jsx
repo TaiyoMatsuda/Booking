@@ -1,17 +1,16 @@
-import {
-  Card,
-  Icon,
-  Text,
-} from 'react-native-paper';
+import { Card } from '@rneui/themed';
+import { TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 function QRButton({ onPress }) {
   return (
-    <Card mode="outlined" onPress={onPress}>
-      <Card.Content style={{ alignItems: 'center' }}>
-        <Text variant="titleLarge">QR</Text>
-        <Icon source="qrcode" size={100} />
-      </Card.Content>
-    </Card>
+
+    <TouchableOpacity onPress={onPress}>
+      <Card mode="outlined" onPress={onPress}>
+        <Card.Title h4>QR</Card.Title>
+        <Icon name="qrcode" size={75} />
+      </Card>
+    </TouchableOpacity>
   );
 }
 

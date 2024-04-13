@@ -1,56 +1,107 @@
 import { useState } from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   TouchableOpacity,
+  Dimensions,
 } from 'react-native';
-import { Chip, RadioButton } from 'react-native-paper';
+import {
+  Button,
+  Text,
+  CheckBox,
+  Card,
+} from '@rneui/themed';
+
+const screenWidth = Dimensions.get('window').width;
 
 function SelectionPlan({ navigation }) {
-  const [value, setValue] = useState('first');
+  const [selectedIndex, setIndex] = useState(0);
+
   return (
     <View style={{ flex: 1 }}>
-      <Text>User Screen in dir</Text>
-      <RadioButton.Group onValueChange={value => setValue(value)} value={value}>
-        <TouchableOpacity onPress={() => setValue('first')} style={styles.item}>
-          <View style={styles.content}>
-            <Text style={styles.title}>First Item</Text>
-            <Text style={styles.detail}>10:00 AM - 2:00 PM</Text>
-            <Text style={styles.price}>$100</Text>
-          </View>
-          <RadioButton value="first" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => setValue('second')} style={styles.item}>
-          <View style={styles.content}>
-            <Text style={styles.title}>Second Item</Text>
-            <Text style={styles.detail}>10:00 AM - 2:00 PM</Text>
-            <Text style={styles.price}>$100</Text>
-          </View>
-          <RadioButton value="second" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => setValue('third')} style={styles.item}>
-          <View style={styles.content}>
-            <Text style={styles.title}>Third Item</Text>
-            <Text style={styles.detail}>10:00 AM - 2:00 PM</Text>
-            <Text style={styles.price}>$100</Text>
-          </View>
-          <RadioButton value="third" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => setValue('fourth')} style={styles.item}>
-          <View style={styles.content}>
-            <Text style={styles.title}>一時停止</Text>
-          </View>
-          <RadioButton value="fourth" />
-        </TouchableOpacity>
-      </RadioButton.Group>
+      <Text h3>User Screen in dir</Text>
+      <TouchableOpacity onPress={() => setIndex(0)}>
+        <Card>
+          <Text style={styles.title}>First Item</Text>
+          <Text style={styles.detail}>10:00 AM - 2:00 PM</Text>
+          <Text style={styles.price}>$100</Text>
+          <CheckBox
+            title="Sub"
+            checked={selectedIndex === 0}
+            checkedIcon="dot-circle-o"
+            uncheckedIcon="circle-o"
+            onPress={() => setIndex(0)}
+          />
+        </Card>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => setIndex(1)}>
+        <Card>
+          <Text style={styles.title}>Second Item</Text>
+          <Text style={styles.detail}>10:00 AM - 2:00 PM</Text>
+          <Text style={styles.price}>$100</Text>
+          <CheckBox
+            title="Sub"
+            checked={selectedIndex === 1}
+            checkedIcon="dot-circle-o"
+            uncheckedIcon="circle-o"
+            onPress={() => setIndex(1)}
+          />
+        </Card>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => setIndex(2)}>
+        <Card>
+          <Text style={styles.title}>Third Item</Text>
+          <Text style={styles.detail}>10:00 AM - 2:00 PM</Text>
+          <Text style={styles.price}>$100</Text>
+          <CheckBox
+            title="Sub"
+            checked={selectedIndex === 2}
+            checkedIcon="dot-circle-o"
+            uncheckedIcon="circle-o"
+            onPress={() => setIndex(2)}
+          />
+        </Card>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => setIndex(3)}>
+        <Card>
+          <CheckBox
+            title="一時停止"
+            checked={selectedIndex === 3}
+            checkedIcon="dot-circle-o"
+            uncheckedIcon="circle-o"
+            onPress={() => setIndex(3)}
+          />
+        </Card>
+      </TouchableOpacity>
       <View style={styles.container}>
-        <Chip mode="outlined" onPress={() => navigation.goBack()}>
-          キャンセル
-        </Chip>
-        <Chip mode="outlined" onPress={() => navigation.goBack()}>
-          有効
-        </Chip>
+        <Button
+          title="キャンセル"
+          type="outline"
+          raised
+          titleStyle={{ color: 'blue' }}
+          buttonStyle={{
+            backgroundColor: 'white',
+            borderColor: 'blue',
+          }}
+          containerStyle={{
+            width: screenWidth * 0.5,
+          }}
+          onPress={() => navigation.goBack()}
+        />
+        <Button
+          title="有効"
+          type="outline"
+          raised
+          titleStyle={{ color: 'blue' }}
+          buttonStyle={{
+            backgroundColor: 'white',
+            borderColor: 'blue',
+          }}
+          containerStyle={{
+            width: screenWidth * 0.5,
+          }}
+          onPress={() => navigation.goBack()}
+        />
       </View>
     </View>
   );
@@ -60,17 +111,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'center',
-  },
-  item: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
-  },
-  content: {
-    flex: 1,
   },
   title: {
     fontSize: 16,

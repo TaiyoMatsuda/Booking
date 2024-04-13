@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import {
   SafeAreaView, Platform, StyleSheet, StatusBar,
 } from 'react-native';
-import { PaperProvider } from 'react-native-paper';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import signInStatus from './src/recoil/signInStatus';
@@ -51,21 +51,21 @@ function AppContent() {
   }
 
   return (
-    <PaperProvider>
-      <SafeAreaView style={styles.safeArea}>
-        <NavigationContainer>
-          {user ? <MainNavigation /> : <AuthNavigation />}
-        </NavigationContainer>
-      </SafeAreaView>
-    </PaperProvider>
+    <SafeAreaView style={styles.safeArea}>
+      <NavigationContainer>
+        {user ? <MainNavigation /> : <AuthNavigation />}
+      </NavigationContainer>
+    </SafeAreaView>
   );
 }
 
 function App() {
   return (
-    <RecoilRoot>
-      <AppContent />
-    </RecoilRoot>
+    <SafeAreaProvider>
+      <RecoilRoot>
+        <AppContent />
+      </RecoilRoot>
+    </SafeAreaProvider>
   );
 }
 export default App;

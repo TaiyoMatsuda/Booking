@@ -1,22 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Card } from '@rneui/themed';
 import QRCode from 'react-native-qrcode-svg';
 
 export default function PrivateQRCode() {
   return (
-    <View style={styles.container}>
-      <Text>QRコード</Text>
+    <Card>
       <QRCode
         value="golf-booking-test-private-qr"
         size={300}
       />
-    </View>
+    </Card>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

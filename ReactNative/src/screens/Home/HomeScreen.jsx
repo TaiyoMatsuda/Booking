@@ -4,10 +4,7 @@ import {
   View,
   StyleSheet,
 } from 'react-native';
-import {
-  Chip,
-  Text,
-} from 'react-native-paper';
+import { Text } from '@rneui/themed';
 import { useSetRecoilState, useRecoilValue } from 'recoil';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ReservationButton from '../../components/Home/ReservationButton';
@@ -15,6 +12,7 @@ import NextReservationCard from '../../components/Home/NextReservationCard';
 import HistoryButton from '../../components/Home/HistoryButton';
 import QRButton from '../../components/Home/QRButton';
 import signInStatus from '../../recoil/signInStatus';
+import LogOutButton from '../../components/Home/LogOutButton';
 
 function HomeScreen({ navigation }) {
   const isSignedIn = useRecoilValue(signInStatus);
@@ -71,11 +69,10 @@ function HomeScreen({ navigation }) {
   return (
     <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
       <View style={styles.container}>
-        <Text variant="headlineMedium">{`Hello, ${userName}!`}</Text>
-        <Chip icon="logout" mode="outlined" onPress={onPressLogOutButton}>Log out</Chip>
+        <Text h2>{`Hello, ${userName}!`}</Text>
+        <LogOutButton onPress={onPressLogOutButton} />
       </View>
       <ReservationButton onPress={() => navigation.navigate('Reservation')} />
-      <Text variant="headlineMedium">次回予約</Text>
       <NextReservationCard reservation={reservation} onPress={onPressCancelButton} />
       <View style={styles.container}>
         <HistoryButton onPress={() => navigation.navigate('History')} />

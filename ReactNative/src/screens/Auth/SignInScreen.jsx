@@ -3,7 +3,7 @@ import {
   SafeAreaView, View, Text,
   TextInput, StyleSheet,
 } from 'react-native';
-import { Chip } from 'react-native-paper';
+import { Button } from '@rneui/themed';
 import { useSetRecoilState } from 'recoil';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import signInStatus from '../../recoil/signInStatus';
@@ -42,14 +42,15 @@ export default function SignInScreen() {
           placeholder="Password"
           textContentType="password"
         />
-        <Chip
-          mode="outlined"
+        <Button
+          radius="sm"
+          type="solid"
           onPress={() => {
             logInWithEmailAndPassword();
           }}
         >
           Sign In
-        </Chip>
+        </Button>
       </View>
     </SafeAreaView>
   );

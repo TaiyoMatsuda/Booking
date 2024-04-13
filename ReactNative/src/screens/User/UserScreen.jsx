@@ -1,5 +1,5 @@
-import { View, Text } from 'react-native';
-import { Button, Card } from 'react-native-paper';
+import { View } from 'react-native';
+import { Card, Button, Text } from '@rneui/themed';
 
 function UserScreen({ navigation }) {
   return (
@@ -12,16 +12,25 @@ function UserScreen({ navigation }) {
         <Text>・Email</Text>
       </View>
       <Card>
-        <Card.Title title="プラン" />
-        <Card.Content>
-          <Text>プラン1. ¥1000</Text>
-          <Text>残り時間: 10H</Text>
-        </Card.Content>
-        <Card.Actions>
-          <Button onPress={() => navigation.navigate('SelectionPlanScreen')}>
-            プランの変更
-          </Button>
-        </Card.Actions>
+        <Card.Title>
+          プラン
+        </Card.Title>
+        <Card.Divider />
+        <Text h2>プラン1. ¥1000</Text>
+        <Text h2>残り時間: 10H</Text>
+        <Button
+          title="プランの変更"
+          buttonStyle={{
+            backgroundColor: 'rgba(78, 116, 289, 1)',
+            borderRadius: 3,
+          }}
+          containerStyle={{
+            width: 200,
+            marginHorizontal: 50,
+            marginVertical: 10,
+          }}
+          onPress={() => navigation.navigate('SelectionPlanScreen')}
+        />
       </Card>
     </View>
   );

@@ -1,15 +1,22 @@
-import { Text } from 'react-native';
-import { Chip } from 'react-native-paper';
+import { Button, Text } from '@rneui/themed';
 import ReservationHistoryList from '../../components/History/ReservationHistoryList';
 
 function HistoryScreen({ navigation }) {
   return (
     <>
-      <Text>Reservations</Text>
+      <Text h2>履歴</Text>
       <ReservationHistoryList />
-      <Chip mode="outlined" onPress={() => navigation.navigate('Reservation')}>
-        NEW RESERVATION
-      </Chip>
+      <Button
+        title="新規予約"
+        type="outline"
+        raised
+        titleStyle={{ color: 'blue' }}
+        buttonStyle={{
+          backgroundColor: 'white',
+          borderColor: 'blue',
+        }}
+        onPress={() => navigation.navigate('Reservation')}
+      />
     </>
   );
 }
