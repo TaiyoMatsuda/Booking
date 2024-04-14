@@ -5,6 +5,12 @@ import { Text, Card } from '@rneui/themed';
 import CloseButton from '../Common/CloseButton';
 
 function NextReservationCard({ reservation, onPress }) {
+  const margin = {
+    marginTop: 0,
+    marginBottom: 0,
+    marginRight: 5,
+    marginLeft: 5,
+  };
   return (
     <Card mode="contained">
       <Card.Title h4>次回予約</Card.Title>
@@ -17,7 +23,7 @@ function NextReservationCard({ reservation, onPress }) {
           <Text h5>{reservation.work_out_day}</Text>
           <Text h5>{reservation.work_out_time}</Text>
         </View>
-        <CloseButton onPress={onPress} size={40} />
+        <CloseButton size={30} margin={margin} onPress={onPress} />
       </View>
     </Card>
   );

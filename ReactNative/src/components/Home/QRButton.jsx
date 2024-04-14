@@ -4,7 +4,6 @@ import Icon from 'react-native-vector-icons/AntDesign';
 
 function QRButton({ onPress }) {
   return (
-
     <TouchableOpacity onPress={onPress}>
       <Card mode="outlined" onPress={onPress}>
         <Card.Title h4>QR</Card.Title>

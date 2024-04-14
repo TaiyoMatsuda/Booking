@@ -25,6 +25,13 @@ export default function ReservationHistory({ reservation }) {
     );
   };
 
+  const margin = {
+    marginTop: 5,
+    marginBottom: 5,
+    marginRight: 5,
+    marginLeft: 0,
+  };
+
   return (
     <View>
       <Divider />
@@ -40,7 +47,7 @@ export default function ReservationHistory({ reservation }) {
         <View>
           {
             reservation.is_cancel
-              ? <CloseButton size={40} onPress={onPressCancelButton} />
+              ? <CloseButton size={35} margin={margin} onPress={onPressCancelButton} />
               : <Icon name="check" size={40} color="green" />
           }
         </View>

@@ -1,10 +1,24 @@
 import { TouchableOpacity } from 'react-native';
+import { Card } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-function CloseButton({ onPress, size }) {
+function CloseButton({ size, margin, onPress }) {
   return (
     <TouchableOpacity onPress={onPress}>
-      <Icon name="close" size={size} color="red" />
+      <Card
+        mode="outlined"
+        containerStyle={{
+          marginTop: margin.marginTop,
+          marginBottom: margin.marginBottom,
+          marginRight: margin.marginRight,
+          padding: 0,
+          borderWidth: 1,
+          borderColor: 'red',
+        }}
+        onPress={onPress}
+      >
+        <Icon name="close" color="red" size={size} />
+      </Card>
     </TouchableOpacity>
   );
 }
