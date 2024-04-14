@@ -3,9 +3,20 @@ import Icon from 'react-native-vector-icons/AntDesign';
 
 function LogOutButton({ onPress }) {
   return (
-    <Button radius="sm" type="solid" onPress={onPress}>
-      Sign Out
-      <Icon name="logout" color="white" size={15} />
+    <Button
+      type="outline"
+      radius="sm"
+      titleStyle={{
+        color: 'blue',
+      }}
+      buttonStyle={{
+        borderColor: 'blue',
+        backgroundColor: 'white',
+      }}
+      onPress={onPress}
+    >
+      Log Out
+      <Icon name="logout" color="blue" size={15} />
     </Button>
   );
 }
