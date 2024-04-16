@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Alert, TouchableOpacity } from 'react-native';
 import { Input } from '@rneui/themed';
-import Icon from 'react-native-vector-icons/Entypo';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 function EmailInput({ email }) {
   const [disabled, setDisabled] = useState(true);
@@ -36,7 +36,7 @@ function EmailInput({ email }) {
 
   const leftIcon = (
     <Icon
-      name="mail"
+      name="mail-sharp"
       size={24}
       color="black"
     />

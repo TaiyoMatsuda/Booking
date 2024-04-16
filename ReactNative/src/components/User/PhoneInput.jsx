@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Alert, TouchableOpacity } from 'react-native';
 import { Input } from '@rneui/themed';
-import Icon from 'react-native-vector-icons/Entypo';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 function PhoneInput({ phone }) {
   const [disabled, setDisabled] = useState(true);
@@ -36,7 +36,7 @@ function PhoneInput({ phone }) {
 
   const leftIcon = (
     <Icon
-      name="phone"
+      name="call-sharp"
       size={24}
       color="black"
     />

@@ -1,10 +1,10 @@
 import { Input } from '@rneui/themed';
-import Icon from 'react-native-vector-icons/Entypo';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 function NameInput({ name }) {
   const leftIcon = (
     <Icon
-      name="user"
+      name="person"
       size={24}
       color="black"
     />

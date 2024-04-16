@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/Ionicons';
 import HistoryScreen from '../screens/History/HistoryScreen';
 import HomeScreen from '../screens/Home/HomeScreen';
 import QRScreen from '../screens/QR/QRScreen';
@@ -16,8 +17,37 @@ const QRStack = createNativeStackNavigator();
 const UserStack = createNativeStackNavigator();
 
 function MainNavigation() {
+  const getTabBarIcon = (routeName, focused, color, size) => {
+    let iconName;
+    switch (routeName) {
+      case 'Home':
+        iconName = focused ? 'home' : 'home-outline';
+        break;
+      case 'Reservation':
+        iconName = focused ? 'golf' : 'golf-outline';
+        break;
+      case 'History':
+        iconName = focused ? 'time' : 'time-outline';
+        break;
+      case 'QR':
+        iconName = focused ? 'qr-code' : 'qr-code-outline';
+        break;
+      case 'User':
+        iconName = focused ? 'person' : 'person-outline';
+        break;
+      default:
+        iconName = focused ? 'person' : 'person-outline';
+    }
+    return <Icon name={iconName} size={size} color={color} />;
+  };
+
   return (
-    <Tab.Navigator screenOptions={{ headerShown: false }}>
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => getTabBarIcon(route.name, focused, color, size),
+        headerShown: false,
+      })}
+    >
       <Tab.Screen name="Home">
         {() => (
           <HomeStack.Navigator>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Alert, TouchableOpacity } from 'react-native';
 import { Input } from '@rneui/themed';
-import Icon from 'react-native-vector-icons/Entypo';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 function AddressInput({ address }) {
   const [disabled, setDisabled] = useState(true);
@@ -36,7 +36,7 @@ function AddressInput({ address }) {
 
   const leftIcon = (
     <Icon
-      name="address"
+      name="home"
       size={24}
       color="black"
     />
