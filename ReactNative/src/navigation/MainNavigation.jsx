@@ -36,7 +36,7 @@ function MainNavigation() {
         iconName = focused ? 'person' : 'person-outline';
         break;
       default:
-        iconName = focused ? 'person' : 'person-outline';
+        iconName = focused ? 'ellipse' : 'ellipse-outline';
     }
     return <Icon name={iconName} size={size} color={color} />;
   };

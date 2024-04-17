@@ -1,5 +1,5 @@
 import { Button } from '@rneui/themed';
-import Icon from 'react-native-vector-icons/AntDesign';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 function LogOutButton({ onPress }) {
   return (
@@ -16,7 +16,7 @@ function LogOutButton({ onPress }) {
       onPress={onPress}
     >
       Log Out
-      <Icon name="logout" color="blue" size={15} />
+      <Icon name="log-out-outline" color="blue" size={25} />
     </Button>
   );
 }
