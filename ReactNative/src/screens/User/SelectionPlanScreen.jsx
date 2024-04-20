@@ -13,13 +13,8 @@ import Subscription from '../../components/User/Subscription';
 const screenWidth = Dimensions.get('window').width;
 
 function SelectionPlan({ route, navigation }) {
-  const [selectedIndex, setSelectedIndex] = useState(route.params.subscription_type);
-
-  const handlePress = (id) => {
-    setSelectedIndex(id);
-  };
-
-  const data = [
+  const inSubscriptionType = route.params.subscription_type;
+  const initialData = [
     {
       id: 1, title: 'First Item', time: '10:00 AM - 2:00 PM', price: '$100',
     },
@@ -33,6 +28,16 @@ function SelectionPlan({ route, navigation }) {
       id: 0, title: '一時停止', time: '', price: '',
     },
   ];
+
+  const [selectedIndex, setSelectedIndex] = useState(route.params.subscription_type);
+  const [data] = useState(() => initialData.map((item) => ({
+    ...item,
+    is_contract: item.id === inSubscriptionType,
+  })));
+
+  const handlePress = (id) => {
+    setSelectedIndex(id);
+  };
 
   return (
     <View style={{ flex: 1 }}>

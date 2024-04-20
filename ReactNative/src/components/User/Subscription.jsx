@@ -1,5 +1,5 @@
 import { TouchableOpacity, View } from 'react-native';
-import { Card, Text } from '@rneui/themed';
+import { Chip, Card, Text } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 function Subscription({ item, onPress, isSelected }) {
@@ -14,15 +14,30 @@ function Subscription({ item, onPress, isSelected }) {
               color={isSelected ? 'blue' : 'grey'}
             />
             <Text
-              style={{ marginRight: 120 }}
               h4
             >
               {item.title}
             </Text>
+            {item.is_contract ? (
+              <Chip
+                title="契約中"
+                type="outline"
+              />
+            ) : (
+              <View />
+            )}
           </View>
         ) : (
           <View>
-            <Text h4>{item.title}</Text>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+              <Text h4>{item.title}</Text>
+              {item.is_contract && (
+                <Chip
+                  title="契約中"
+                  type="outline"
+                />
+              )}
+            </View>
             <Text h4>{item.time}</Text>
             <Text h4>{item.price}</Text>
             <Icon
