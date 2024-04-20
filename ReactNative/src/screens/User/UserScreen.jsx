@@ -37,15 +37,15 @@ function UserScreen({ navigation }) {
       <View style={{ alignItems: 'center' }}>
         <Card>
           <Card.Title h4>
-            契約プラン
+            ご契約プラン
           </Card.Title>
           <Card.Divider />
           <Text h2>プラン1. ¥1000</Text>
           <Text h2>残り時間: 10H</Text>
           <Button
-            title="プランの変更"
+            title="ご契約の変更"
             buttonStyle={{
-              backgroundColor: 'rgba(78, 116, 289, 1)',
+              backgroundColor: 'blue',
               borderRadius: 3,
             }}
             containerStyle={{
@@ -53,7 +53,9 @@ function UserScreen({ navigation }) {
               marginHorizontal: 50,
               marginVertical: 10,
             }}
-            onPress={() => navigation.navigate('SelectionPlanScreen')}
+            onPress={() => navigation.navigate('SelectionPlanScreen', {
+              subscription_type: user.subscription_type,
+            })}
           />
         </Card>
       </View>

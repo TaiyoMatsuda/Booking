@@ -1,73 +1,54 @@
 import { useState } from 'react';
 import {
   View,
-  StyleSheet,
-  TouchableOpacity,
+  FlatList,
   Dimensions,
 } from 'react-native';
 import {
   Button,
   Text,
-  CheckBox,
-  Card,
 } from '@rneui/themed';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Subscription from '../../components/User/Subscription';
 
 const screenWidth = Dimensions.get('window').width;
 
-function SelectionPlan({ navigation }) {
-  const [selectedIndex, setIndex] = useState(0);
+function SelectionPlan({ route, navigation }) {
+  const [selectedIndex, setSelectedIndex] = useState(route.params.subscription_type);
+
+  const handlePress = (id) => {
+    setSelectedIndex(id);
+  };
+
+  const data = [
+    {
+      id: 1, title: 'First Item', time: '10:00 AM - 2:00 PM', price: '$100',
+    },
+    {
+      id: 2, title: 'Second Item', time: '10:00 AM - 2:00 PM', price: '$100',
+    },
+    {
+      id: 3, title: 'Third Item', time: '10:00 AM - 2:00 PM', price: '$100',
+    },
+    {
+      id: 0, title: '一時停止', time: '', price: '',
+    },
+  ];
 
   return (
     <View style={{ flex: 1 }}>
-      <Text h3>User Screen in dir</Text>
-      <TouchableOpacity onPress={() => setIndex(0)}>
-        <Card>
-          <Text style={styles.title}>First Item</Text>
-          <Text style={styles.detail}>10:00 AM - 2:00 PM</Text>
-          <Text style={styles.price}>$100</Text>
-          <Icon
-            name={selectedIndex === 0 ? 'dot-circle-o' : 'circle-o'}
-            size={24}
-            color={selectedIndex === 0 ? 'blue' : 'grey'}
+      <Text h3>ご契約の変更</Text>
+      <FlatList
+        data={data}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <Subscription
+            item={item}
+            onPress={() => handlePress(item.id)}
+            isSelected={selectedIndex === item.id}
           />
-        </Card>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => setIndex(1)}>
-        <Card>
-          <Text style={styles.title}>Second Item</Text>
-          <Text style={styles.detail}>10:00 AM - 2:00 PM</Text>
-          <Text style={styles.price}>$100</Text>
-          <Icon
-            name={selectedIndex === 1 ? 'dot-circle-o' : 'circle-o'}
-            size={24}
-            color={selectedIndex === 1 ? 'blue' : 'grey'}
-          />
-        </Card>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => setIndex(2)}>
-        <Card>
-          <Text style={styles.title}>Third Item</Text>
-          <Text style={styles.detail}>10:00 AM - 2:00 PM</Text>
-          <Text style={styles.price}>$100</Text>
-          <Icon
-            name={selectedIndex === 2 ? 'dot-circle-o' : 'circle-o'}
-            size={24}
-            color={selectedIndex === 2 ? 'blue' : 'grey'}
-          />
-        </Card>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => setIndex(3)}>
-        <Card>
-          <Text style={styles.title}>一時停止</Text>
-          <Icon
-            name={selectedIndex === 3 ? 'dot-circle-o' : 'circle-o'}
-            size={24}
-            color={selectedIndex === 3 ? 'blue' : 'grey'}
-          />
-        </Card>
-      </TouchableOpacity>
-      <View style={styles.container}>
+        )}
+      />
+      <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
         <Button
           title="キャンセル"
           type="outline"
@@ -100,24 +81,5 @@ function SelectionPlan({ navigation }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  detail: {
-    fontSize: 14,
-    color: '#666',
-  },
-  price: {
-    fontSize: 14,
-    color: '#333',
-  },
-});
 
 export default SelectionPlan;
