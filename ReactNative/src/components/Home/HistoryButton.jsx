@@ -14,7 +14,7 @@ function HistoryButton({ onPress }) {
         }}
       >
         <Card.Title h4 style={{ color: 'blue' }}>履歴</Card.Title>
-        <Icon name="time-outline" size={75} style={{ color: 'blue' }} />
+        <Icon name="time-outline" size={100} style={{ color: 'blue' }} />
       </Card>
     </TouchableOpacity>
   );

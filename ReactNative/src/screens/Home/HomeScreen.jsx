@@ -3,6 +3,7 @@ import {
   Alert,
   View,
   StyleSheet,
+  ScrollView,
 } from 'react-native';
 import { Text } from '@rneui/themed';
 import { useSetRecoilState, useRecoilValue } from 'recoil';
@@ -67,25 +68,35 @@ function HomeScreen({ navigation }) {
   };
 
   return (
-    <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
-      <View style={styles.container}>
+    <>
+      <View style={styles.containerHeader}>
         <Text h2>{`Hello, ${userName}!`}</Text>
         <LogOutButton onPress={onPressLogOutButton} />
       </View>
-      <ReservationButton onPress={() => navigation.navigate('Reservation')} />
-      <NextReservationCard reservation={reservation} onPress={onPressCancelButton} />
-      <View style={styles.container}>
-        <HistoryButton onPress={() => navigation.navigate('History')} />
-        <QRButton onPress={() => navigation.navigate('QR')} />
-      </View>
-    </View>
+      <ScrollView>
+        <View style={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
+          <ReservationButton onPress={() => navigation.navigate('Reservation')} />
+          <NextReservationCard reservation={reservation} onPress={onPressCancelButton} />
+          <View style={styles.container}>
+            <HistoryButton onPress={() => navigation.navigate('History')} />
+            <QRButton onPress={() => navigation.navigate('QR')} />
+          </View>
+        </View>
+      </ScrollView>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
+  containerHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    margin: 20,
+  },
   container: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

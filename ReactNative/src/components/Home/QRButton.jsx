@@ -14,7 +14,7 @@ function QRButton({ onPress }) {
         }}
       >
         <Card.Title h4 style={{ color: 'blue' }}>QR</Card.Title>
-        <Icon name="qr-code-sharp" size={75} style={{ color: 'blue' }} />
+        <Icon name="qr-code-sharp" size={100} style={{ color: 'blue' }} />
       </Card>
     </TouchableOpacity>
   );
