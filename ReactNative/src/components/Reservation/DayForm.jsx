@@ -1,15 +1,14 @@
 import { View } from 'react-native';
 import { Text } from '@rneui/themed';
+import DatePickerInput from '../Common/DatePickerInput';
 
 function DayForm() {
   return (
-    <View style={{ flexDirection: 'row' }}>
+    <View>
       <Text h4>
         日程:
       </Text>
-      <Text h4>
-        10:00 ~ 11:00
-      </Text>
+      <DatePickerInput />
     </View>
   );
 }

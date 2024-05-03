@@ -17,19 +17,23 @@ const screenWidth = Dimensions.get('window').width;
 
 function ReservationScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, justifyContent: 'center' }}>
+    <>
       <View style={
           { alignItems: 'left', marginHorizontal: 20 }
         }
       >
         <Text h2>新規予約</Text>
       </View>
-      <View>
-        <PlaceForm />
-        <DayForm />
-        <RoomForm onPress={() => navigation.navigate('TimeSelectionScreen')} />
-        <RentCard />
-      </View>
+      <ScrollView>
+        <View style={{ flex: 1, justifyContent: 'space-evenly' }}>
+          <View>
+            <PlaceForm />
+            <DayForm />
+            <RoomForm onPress={() => navigation.navigate('TimeSelectionScreen')} />
+            <RentCard />
+          </View>
+        </View>
+      </ScrollView>
       <View style={styles.container}>
         <Button
           title="キャンセル"
@@ -56,7 +60,7 @@ function ReservationScreen({ navigation }) {
           }}
         />
       </View>
-    </View>
+    </>
   );
 }
 

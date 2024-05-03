@@ -1,5 +1,8 @@
 import { useState } from 'react';
-import { View, FlatList } from 'react-native';
+import {
+  View,
+  ScrollView,
+} from 'react-native';
 import { Card, Text, Button } from '@rneui/themed';
 import RentItem from './RentItem';
 
@@ -20,6 +23,16 @@ function RentCard() {
       name: 'shrit',
       count: 1,
       unit_price: '¥ 300',
+    }, {
+      id: 4,
+      name: 'towel',
+      count: 1,
+      unit_price: '¥ 100',
+    }, {
+      id: 5,
+      name: 'glove',
+      count: 1,
+      unit_price: '¥ 200',
     },
   ]);
 
@@ -40,13 +53,11 @@ function RentCard() {
           }}
         />
       </View>
-      <FlatList
-        data={items}
-        renderItem={({ item }) => <RentItem rent={item} />}
-        keyExtractor={(item) => item.id}
-        onEndReachedThreshold={0.5}
-        contentContainerStyle={{ marginTop: 10 }}
-      />
+      <ScrollView contentContainerStyle={{ marginTop: 10 }} style={{ height: 250 }}>
+        {items.map((item) => (
+          <RentItem key={item.id} rent={item} />
+        ))}
+      </ScrollView>
     </Card>
   );
 }
