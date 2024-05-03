@@ -1,43 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import {
-  StyleSheet, View, Text, TouchableOpacity, ScrollView,
+  StyleSheet, View, ScrollView,
 } from 'react-native';
 import { timeSlotsStatus } from '../../recoil/timeSlotsStatus';
-
-const generateTimeSlotsForRoom = (room) => {
-  const slots = [];
-  for (let hour = 0; hour < 24; hour++) {
-    for (let minute = 0; minute < 60; minute += 30) {
-      const time = `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
-      slots.push({
-        id: `${time}-${room}`, time, room, isSelected: false,
-      });
-    }
-  }
-  return slots;
-};
-
-function RoomColumn({ room, isSelected, onToggle }) {
-  const items = generateTimeSlotsForRoom(room);
-  return (
-    <View style={styles.column}>
-      {items.map((item) => (
-        <TouchableOpacity
-          key={item.id}
-          style={[
-            styles.itemContainer,
-            { backgroundColor: isSelected(item.id) ? '#3498db' : '#95a5a6' },
-          ]}
-          onPress={() => onToggle(item.id)}
-        >
-          <Text style={styles.itemName}>{room}</Text>
-          <Text style={styles.itemName}>{item.time}</Text>
-        </TouchableOpacity>
-      ))}
-    </View>
-  );
-}
+import RoomColumn from './RoomColumn';
 
 export default function TimeLineGrid() {
   const setClear = useSetRecoilState(timeSlotsStatus);
