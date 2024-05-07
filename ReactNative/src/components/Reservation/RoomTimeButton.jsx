@@ -5,17 +5,18 @@ import {
 export default function RoomTimeButton({
   room, item, isSelected, onToggle,
 }) {
+  const time = `${item.startTime} ~ ${item.endTime}`;
   return (
     <TouchableOpacity
-      key={item.id}
+      key={item.key}
       style={[
         styles.itemContainer,
-        { backgroundColor: isSelected(item.id) ? '#3498db' : '#95a5a6' },
+        { backgroundColor: isSelected ? '#3498db' : '#95a5a6' },
       ]}
-      onPress={() => onToggle(item.id)}
+      onPress={() => onToggle(item)}
     >
       <Text style={styles.itemName}>{room}</Text>
-      <Text style={styles.itemName}>{item.time}</Text>
+      <Text style={styles.itemName}>{time}</Text>
     </TouchableOpacity>
   );
 }

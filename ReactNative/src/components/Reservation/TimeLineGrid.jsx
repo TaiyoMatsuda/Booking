@@ -1,30 +1,10 @@
-import { useState, useEffect } from 'react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
 import {
   StyleSheet, View, ScrollView,
 } from 'react-native';
-import { timeSlotsStatus } from '../../recoil/timeSlotsStatus';
 import RoomColumn from './RoomColumn';
 
 export default function TimeLineGrid() {
-  const setClear = useSetRecoilState(timeSlotsStatus);
-  const isClear = useRecoilValue(timeSlotsStatus);
-  const [selectedItems, setSelectedItems] = useState([]);
   const rooms = ['A', 'B', 'C', 'D', 'E'];
-
-  const toggleSelection = (id) => {
-    setSelectedItems((prevSelectedItems) => {
-      if (prevSelectedItems.includes(id)) {
-        return prevSelectedItems.filter((itemId) => itemId !== id);
-      }
-      return [...prevSelectedItems, id];
-    });
-  };
-
-  useEffect(() => {
-    setSelectedItems([]);
-    setClear(false);
-  }, [isClear, setClear]);
 
   return (
     <View style={{ flex: 1, flexDirection: 'row' }}>
@@ -34,8 +14,6 @@ export default function TimeLineGrid() {
             <RoomColumn
               key={room}
               room={room}
-              isSelected={(itemId) => selectedItems.includes(itemId)}
-              onToggle={toggleSelection}
             />
           ))}
         </ScrollView>

@@ -1,18 +1,27 @@
+import { useEffect } from 'react';
 import {
   Alert,
   View,
   StyleSheet,
   Dimensions,
 } from 'react-native';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { Button } from '@rneui/themed';
 import TimeLineGrid from '../../components/Reservation/TimeLineGrid';
 import { timeSlotsStatus } from '../../recoil/timeSlotsStatus';
+import { selectedTimes } from '../../recoil/selectedTimes';
 
 const screenWidth = Dimensions.get('window').width;
 
 function TimeSelectionScreen({ navigation }) {
-  const setClear = useSetRecoilState(timeSlotsStatus);
+  const [isClear, setClear] = useRecoilState(timeSlotsStatus);
+  const [selectedItems, setSelectedItems] = useRecoilState(selectedTimes);
+
+  useEffect(() => {
+    setSelectedItems([]);
+    setClear(false);
+  }, [isClear, setClear]);
+
   const onPressOKButton = () => {
     Alert.alert(
       'アラートを出しました',
@@ -24,10 +33,15 @@ function TimeSelectionScreen({ navigation }) {
           style: 'cancel',
         },
         {
-          text: 'OK', onPress: () => console.log('アラートのOKをタップした時の挙動を書く'),
+          text: 'OK', onPress: onPressOk,
         },
       ],
     );
+  };
+
+  const onPressOk = () => {
+    console.log('アラートのOK_onPressOk:' + JSON.stringify(selectedItems));
+    setSelectedItems([]);
   };
 
   const onPressClearButton = () => {
