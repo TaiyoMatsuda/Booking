@@ -1,13 +1,6 @@
 import { useState } from 'react';
-import {
-  View,
-  FlatList,
-  Dimensions,
-} from 'react-native';
-import {
-  Button,
-  Text,
-} from '@rneui/themed';
+import { View, FlatList, Dimensions } from 'react-native';
+import { Button, Text } from '@rneui/themed';
 import Subscription from '../../components/User/Subscription';
 
 const screenWidth = Dimensions.get('window').width;
@@ -16,26 +9,42 @@ function SelectionPlan({ route, navigation }) {
   const inSubscriptionType = route.params.subscription_type;
   const initialData = [
     {
-      id: 1, title: 'First Item', time: '10:00 AM - 2:00 PM', price: '$100',
+      id: 1,
+      title: 'First Item',
+      time: '10:00 AM - 2:00 PM',
+      price: '$100',
     },
     {
-      id: 2, title: 'Second Item', time: '10:00 AM - 2:00 PM', price: '$100',
+      id: 2,
+      title: 'Second Item',
+      time: '10:00 AM - 2:00 PM',
+      price: '$100',
     },
     {
-      id: 3, title: 'Third Item', time: '10:00 AM - 2:00 PM', price: '$100',
+      id: 3,
+      title: 'Third Item',
+      time: '10:00 AM - 2:00 PM',
+      price: '$100',
     },
     {
-      id: 0, title: '一時停止', time: '', price: '',
+      id: 0,
+      title: '一時停止',
+      time: '',
+      price: '',
     },
   ];
 
-  const [selectedIndex, setSelectedIndex] = useState(route.params.subscription_type);
-  const [data] = useState(() => initialData.map((item) => ({
-    ...item,
-    is_contract: item.id === inSubscriptionType,
-  })));
+  const [selectedIndex, setSelectedIndex] = useState(
+    route.params.subscription_type,
+  );
+  const [data] = useState(() =>
+    initialData.map(item => ({
+      ...item,
+      is_contract: item.id === inSubscriptionType,
+    })),
+  );
 
-  const handlePress = (id) => {
+  const handlePress = id => {
     setSelectedIndex(id);
   };
 
@@ -44,7 +53,7 @@ function SelectionPlan({ route, navigation }) {
       <Text h3>ご契約の変更</Text>
       <FlatList
         data={data}
-        keyExtractor={(item) => item.id}
+        keyExtractor={item => item.id}
         renderItem={({ item }) => (
           <Subscription
             item={item}
@@ -55,8 +64,8 @@ function SelectionPlan({ route, navigation }) {
       />
       <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
         <Button
-          title="キャンセル"
-          type="outline"
+          title='キャンセル'
+          type='outline'
           raised
           titleStyle={{ color: 'blue' }}
           buttonStyle={{
@@ -69,8 +78,8 @@ function SelectionPlan({ route, navigation }) {
           onPress={() => navigation.goBack()}
         />
         <Button
-          title="有効"
-          type="outline"
+          title='有効'
+          type='outline'
           raised
           titleStyle={{ color: 'blue' }}
           buttonStyle={{

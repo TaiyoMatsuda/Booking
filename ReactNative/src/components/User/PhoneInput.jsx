@@ -18,45 +18,27 @@ function PhoneInput({ phone }) {
   };
 
   const onPressSaveButton = () => {
-    Alert.alert(
-      '変更を保存しますか？',
-      '',
-      [
-        {
-          text: '戻す',
-          onPress: initializePhoneNumber,
-        },
-        {
-          text: '保存',
-          onPress: newPhoneNumber,
-        },
-      ],
-    );
+    Alert.alert('変更を保存しますか？', '', [
+      {
+        text: '戻す',
+        onPress: initializePhoneNumber,
+      },
+      {
+        text: '保存',
+        onPress: newPhoneNumber,
+      },
+    ]);
   };
 
-  const leftIcon = (
-    <Icon
-      name="call-sharp"
-      size={24}
-      color="black"
-    />
-  );
+  const leftIcon = <Icon name='call-sharp' size={24} color='black' />;
 
   const rightIcon = disabled ? (
     <TouchableOpacity onPress={() => setDisabled(false)}>
-      <Icon
-        name="pencil"
-        size={24}
-        color="black"
-      />
+      <Icon name='pencil' size={24} color='black' />
     </TouchableOpacity>
   ) : (
     <TouchableOpacity onPress={onPressSaveButton}>
-      <Icon
-        name="save"
-        size={24}
-        color="black"
-      />
+      <Icon name='save' size={24} color='black' />
     </TouchableOpacity>
   );
 

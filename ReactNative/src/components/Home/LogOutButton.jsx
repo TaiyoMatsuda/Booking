@@ -4,8 +4,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 function LogOutButton({ onPress }) {
   return (
     <Button
-      type="outline"
-      radius="sm"
+      type='outline'
+      radius='sm'
       titleStyle={{
         color: 'blue',
       }}
@@ -16,7 +16,7 @@ function LogOutButton({ onPress }) {
       onPress={onPress}
     >
       Log Out
-      <Icon name="log-out-outline" color="blue" size={25} />
+      <Icon name='log-out-outline' color='blue' size={25} />
     </Button>
   );
 }

@@ -1,13 +1,5 @@
-import {
-  View,
-  StyleSheet,
-  Dimensions,
-  ScrollView,
-} from 'react-native';
-import {
-  Button,
-  Text,
-} from '@rneui/themed';
+import { View, StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { Button, Text } from '@rneui/themed';
 import DayForm from '../../components/Reservation/DayForm';
 import RoomForm from '../../components/Reservation/RoomForm';
 import RentCard from '../../components/Reservation/RentCard';
@@ -18,10 +10,7 @@ const screenWidth = Dimensions.get('window').width;
 function ReservationScreen({ navigation }) {
   return (
     <>
-      <View style={
-          { alignItems: 'left', marginHorizontal: 20 }
-        }
-      >
+      <View style={{ alignItems: 'left', marginHorizontal: 20 }}>
         <Text h2>新規予約</Text>
       </View>
       <ScrollView>
@@ -29,15 +18,17 @@ function ReservationScreen({ navigation }) {
           <View>
             <PlaceForm />
             <DayForm />
-            <RoomForm onPress={() => navigation.navigate('TimeSelectionScreen')} />
+            <RoomForm
+              onPress={() => navigation.navigate('TimeSelectionScreen')}
+            />
             <RentCard />
           </View>
         </View>
       </ScrollView>
       <View style={styles.container}>
         <Button
-          title="キャンセル"
-          type="outline"
+          title='キャンセル'
+          type='outline'
           titleStyle={{ color: 'blue' }}
           buttonStyle={{
             backgroundColor: 'white',
@@ -48,8 +39,8 @@ function ReservationScreen({ navigation }) {
           }}
         />
         <Button
-          title="有効"
-          type="outline"
+          title='有効'
+          type='outline'
           titleStyle={{ color: 'blue' }}
           buttonStyle={{
             backgroundColor: 'white',

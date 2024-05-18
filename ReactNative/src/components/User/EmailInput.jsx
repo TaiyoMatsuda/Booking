@@ -18,45 +18,27 @@ function EmailInput({ email }) {
   };
 
   const onPressSaveButton = () => {
-    Alert.alert(
-      '変更を保存しますか？',
-      '',
-      [
-        {
-          text: '戻す',
-          onPress: initializeEmail,
-        },
-        {
-          text: '保存',
-          onPress: newEmail,
-        },
-      ],
-    );
+    Alert.alert('変更を保存しますか？', '', [
+      {
+        text: '戻す',
+        onPress: initializeEmail,
+      },
+      {
+        text: '保存',
+        onPress: newEmail,
+      },
+    ]);
   };
 
-  const leftIcon = (
-    <Icon
-      name="mail-sharp"
-      size={24}
-      color="black"
-    />
-  );
+  const leftIcon = <Icon name='mail-sharp' size={24} color='black' />;
 
   const rightIcon = disabled ? (
     <TouchableOpacity onPress={() => setDisabled(false)}>
-      <Icon
-        name="pencil"
-        size={24}
-        color="black"
-      />
+      <Icon name='pencil' size={24} color='black' />
     </TouchableOpacity>
   ) : (
     <TouchableOpacity onPress={onPressSaveButton}>
-      <Icon
-        name="save"
-        size={24}
-        color="black"
-      />
+      <Icon name='save' size={24} color='black' />
     </TouchableOpacity>
   );
 

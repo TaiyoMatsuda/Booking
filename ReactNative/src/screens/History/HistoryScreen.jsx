@@ -7,8 +7,8 @@ function HistoryScreen({ navigation }) {
       <Text h2>履歴</Text>
       <ReservationHistoryList />
       <Button
-        title="新規予約"
-        type="outline"
+        title='新規予約'
+        type='outline'
         raised
         titleStyle={{ color: 'blue' }}
         buttonStyle={{

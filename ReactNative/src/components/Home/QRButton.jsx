@@ -6,15 +6,17 @@ function QRButton({ onPress }) {
   return (
     <TouchableOpacity onPress={onPress}>
       <Card
-        mode="outlined"
+        mode='outlined'
         containerStyle={{
           alignItems: 'center',
           borderColor: 'blue',
           borderWidth: 1,
         }}
       >
-        <Card.Title h4 style={{ color: 'blue' }}>QR</Card.Title>
-        <Icon name="qr-code-sharp" size={100} style={{ color: 'blue' }} />
+        <Card.Title h4 style={{ color: 'blue' }}>
+          QR
+        </Card.Title>
+        <Icon name='qr-code-sharp' size={100} style={{ color: 'blue' }} />
       </Card>
     </TouchableOpacity>
   );

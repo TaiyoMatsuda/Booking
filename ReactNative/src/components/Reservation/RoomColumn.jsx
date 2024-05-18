@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import RoomTimeButton from './RoomTimeButton';
 import { selectedTimes } from '../../recoil/selectedTimes';
 
-const generateTimeSlotsForRoom = (room) => {
+const generateTimeSlotsForRoom = room => {
   const slots = [];
   let timeSlotId = 1;
   for (let hour = 0; hour < 24; hour++) {
@@ -31,12 +31,14 @@ export default function RoomColumn({ room }) {
   const [selectedItems, setSelectedItems] = useRecoilState(selectedTimes);
   const items = generateTimeSlotsForRoom(room);
 
-  const toggleSelection = (item) => {
-    setSelectedItems((prevSelectedItems) => {
-      const isAlreadySelected = prevSelectedItems.some((pre) => pre.key === item.key);
+  const toggleSelection = item => {
+    setSelectedItems(prevSelectedItems => {
+      const isAlreadySelected = prevSelectedItems.some(
+        pre => pre.key === item.key,
+      );
 
       if (isAlreadySelected) {
-        return prevSelectedItems.filter((pre) => pre.key !== item.key);
+        return prevSelectedItems.filter(pre => pre.key !== item.key);
       }
       return [...prevSelectedItems, item];
     });
@@ -44,8 +46,10 @@ export default function RoomColumn({ room }) {
 
   return (
     <View style={styles.column}>
-      {items.map((item) => {
-        const isSelected = selectedItems.some((selectedItem) => selectedItem.key === item.key);
+      {items.map(item => {
+        const isSelected = selectedItems.some(
+          selectedItem => selectedItem.key === item.key,
+        );
         return (
           <RoomTimeButton
             key={item.key}

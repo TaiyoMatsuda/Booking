@@ -7,7 +7,7 @@ function ReservationButton({ onPress }) {
   return (
     <TouchableOpacity onPress={onPress}>
       <Card
-        mode="outlined"
+        mode='outlined'
         containerStyle={{
           alignItems: 'center',
           borderColor: 'blue',

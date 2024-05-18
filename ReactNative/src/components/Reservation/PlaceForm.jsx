@@ -5,9 +5,7 @@ import Autocomplete from '../Common/Autocomplete';
 function PlaceForm() {
   return (
     <View>
-      <Text h4>
-        店舗:
-      </Text>
+      <Text h4>店舗:</Text>
       <Autocomplete />
     </View>
   );

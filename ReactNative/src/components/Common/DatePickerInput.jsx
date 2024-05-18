@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { View, TouchableOpacity } from 'react-native';
-import { Card, Input, Text } from '@rneui/themed';
+import { Card, Text } from '@rneui/themed';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { format } from 'date-fns';
@@ -17,7 +17,7 @@ function DatePickerInput() {
     setDatePickerVisibility(false);
   };
 
-  const handleConfirm = (date) => {
+  const handleConfirm = date => {
     setDate(date);
     hideDatePicker();
   };
@@ -29,7 +29,7 @@ function DatePickerInput() {
   return (
     <TouchableOpacity onPress={showDatePicker}>
       <Card
-        mode="outlined"
+        mode='outlined'
         containerStyle={{
           margin: 0,
           padding: 0,
@@ -38,19 +38,17 @@ function DatePickerInput() {
         }}
       >
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          <Text h4>
-            {formatDate()}
-          </Text>
-          <Icon name="calendar-outline" color="blue" size={25} />
+          <Text h4>{formatDate()}</Text>
+          <Icon name='calendar-outline' color='blue' size={25} />
         </View>
         <DateTimePickerModal
           isVisible={isDatePickerVisible}
-          mode="date"
+          mode='date'
           onConfirm={handleConfirm}
           onCancel={hideDatePicker}
-          cancelTextIOS="キャンセル"
-          confirmTextIOS="確認"
-          locale="ja"
+          cancelTextIOS='キャンセル'
+          confirmTextIOS='確認'
+          locale='ja'
         />
       </Card>
     </TouchableOpacity>

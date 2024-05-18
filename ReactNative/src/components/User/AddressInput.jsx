@@ -18,45 +18,27 @@ function AddressInput({ address }) {
   };
 
   const onPressSaveButton = () => {
-    Alert.alert(
-      '変更を保存しますか？',
-      '',
-      [
-        {
-          text: '戻す',
-          onPress: initializeAddress,
-        },
-        {
-          text: '保存',
-          onPress: newAddress,
-        },
-      ],
-    );
+    Alert.alert('変更を保存しますか？', '', [
+      {
+        text: '戻す',
+        onPress: initializeAddress,
+      },
+      {
+        text: '保存',
+        onPress: newAddress,
+      },
+    ]);
   };
 
-  const leftIcon = (
-    <Icon
-      name="home"
-      size={24}
-      color="black"
-    />
-  );
+  const leftIcon = <Icon name='home' size={24} color='black' />;
 
   const rightIcon = disabled ? (
     <TouchableOpacity onPress={() => setDisabled(false)}>
-      <Icon
-        name="pencil"
-        size={24}
-        color="black"
-      />
+      <Icon name='pencil' size={24} color='black' />
     </TouchableOpacity>
   ) : (
     <TouchableOpacity onPress={onPressSaveButton}>
-      <Icon
-        name="save"
-        size={24}
-        color="black"
-      />
+      <Icon name='save' size={24} color='black' />
     </TouchableOpacity>
   );
 

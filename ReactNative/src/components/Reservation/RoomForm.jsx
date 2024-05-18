@@ -19,15 +19,11 @@ function RoomForm({ onPress }) {
   }, [selectedItems]);
   return (
     <View style={styles.container}>
-      <Text h4>
-        {`部屋: ${selectedRoom}`}
-      </Text>
-      <Text h4>
-        {`時間: ${selectedStartTime} ~ ${selectedEndTime}`}
-      </Text>
+      <Text h4>{`部屋: ${selectedRoom}`}</Text>
+      <Text h4>{`時間: ${selectedStartTime} ~ ${selectedEndTime}`}</Text>
       <Button
-        title="選択"
-        type="outline"
+        title='選択'
+        type='outline'
         titleStyle={{ color: 'blue' }}
         buttonStyle={{
           backgroundColor: 'white',

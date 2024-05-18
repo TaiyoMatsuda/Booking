@@ -1,10 +1,6 @@
-import {
-  StyleSheet, Text, TouchableOpacity,
-} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-export default function RoomTimeButton({
-  room, item, isSelected, onToggle,
-}) {
+export default function RoomTimeButton({ room, item, isSelected, onToggle }) {
   const time = `${item.startTime} ~ ${item.endTime}`;
   return (
     <TouchableOpacity

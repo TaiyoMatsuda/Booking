@@ -5,21 +5,11 @@ function RentItem({ rent }) {
   return (
     <Card>
       <View style={{ flexDirection: 'row' }}>
-        <Text h4>
-          {rent.name}
-        </Text>
-        <Text h4>
-          ×
-        </Text>
-        <Text h4>
-          {rent.count}
-        </Text>
-        <Text h4>
-          →
-        </Text>
-        <Text h4>
-          {rent.unit_price}
-        </Text>
+        <Text h4>{rent.name}</Text>
+        <Text h4>×</Text>
+        <Text h4>{rent.count}</Text>
+        <Text h4>→</Text>
+        <Text h4>{rent.unit_price}</Text>
       </View>
     </Card>
   );

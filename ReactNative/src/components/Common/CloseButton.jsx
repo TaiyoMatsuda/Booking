@@ -6,7 +6,7 @@ function CloseButton({ size, margin, onPress }) {
   return (
     <TouchableOpacity onPress={onPress}>
       <Card
-        mode="outlined"
+        mode='outlined'
         containerStyle={{
           marginTop: margin.marginTop,
           marginBottom: margin.marginBottom,
@@ -17,7 +17,7 @@ function CloseButton({ size, margin, onPress }) {
         }}
         onPress={onPress}
       >
-        <Icon name="close" color="red" size={size} />
+        <Icon name='close' color='red' size={size} />
       </Card>
     </TouchableOpacity>
   );

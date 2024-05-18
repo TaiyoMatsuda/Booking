@@ -5,11 +5,9 @@ const Stack = createNativeStackNavigator();
 
 function StackGroup() {
   return (
-    <Stack.Navigator
-      screenOptions={{ headerShown: false }}
-    >
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen
-        name="SignInScreen"
+        name='SignInScreen'
         options={{ headerShown: false }}
         component={SignInScreen}
       />
@@ -18,9 +16,7 @@ function StackGroup() {
 }
 
 function AuthNavigation() {
-  return (
-    <StackGroup />
-  );
+  return <StackGroup />;
 }
 
 export default AuthNavigation;

@@ -8,7 +8,7 @@ function QRScreen({ navigation }) {
       <Text h3>QR Screen in dir</Text>
       <PrivateQRCode />
       <Button
-        title="Home"
+        title='Home'
         buttonStyle={{
           backgroundColor: 'rgba(78, 116, 289, 1)',
           borderRadius: 3,

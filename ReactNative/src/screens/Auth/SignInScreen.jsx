@@ -1,8 +1,5 @@
 import { useState } from 'react';
-import {
-  SafeAreaView, View, Text,
-  TextInput, StyleSheet,
-} from 'react-native';
+import { SafeAreaView, View, Text, TextInput, StyleSheet } from 'react-native';
 import { Button } from '@rneui/themed';
 import { useSetRecoilState } from 'recoil';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -27,24 +24,28 @@ export default function SignInScreen() {
         <TextInput
           style={styles.input}
           value={email}
-          onChangeText={(text) => { setEmail(text); }}
-          autoCapitalize="none"
-          keyboardType="email-address"
-          placeholder="Email Address"
-          textContentType="emailAddress"
+          onChangeText={text => {
+            setEmail(text);
+          }}
+          autoCapitalize='none'
+          keyboardType='email-address'
+          placeholder='Email Address'
+          textContentType='emailAddress'
         />
         <TextInput
           style={styles.input}
           value={password}
-          onChangeText={(text) => { setPassword(text); }}
-          autoCapitalize="none"
+          onChangeText={text => {
+            setPassword(text);
+          }}
+          autoCapitalize='none'
           secureTextEntry
-          placeholder="Password"
-          textContentType="password"
+          placeholder='Password'
+          textContentType='password'
         />
         <Button
-          radius="sm"
-          type="solid"
+          radius='sm'
+          type='solid'
           onPress={() => {
             logInWithEmailAndPassword();
           }}

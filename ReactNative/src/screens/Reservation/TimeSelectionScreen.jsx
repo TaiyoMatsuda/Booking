@@ -1,10 +1,5 @@
 import { useEffect } from 'react';
-import {
-  Alert,
-  View,
-  StyleSheet,
-  Dimensions,
-} from 'react-native';
+import { Alert, View, StyleSheet, Dimensions } from 'react-native';
 import { useRecoilState } from 'recoil';
 import { Button } from '@rneui/themed';
 import TimeLineGrid from '../../components/Reservation/TimeLineGrid';
@@ -23,20 +18,18 @@ function TimeSelectionScreen({ navigation }) {
   }, [isClear, setClear]);
 
   const onPressOKButton = () => {
-    Alert.alert(
-      'アラートを出しました',
-      'テキストテキストテキストテキスト',
-      [
-        {
-          text: 'Cancel',
-          onPress: () => console.log('アラートのcancelをタップした時の挙動を書く'),
-          style: 'cancel',
-        },
-        {
-          text: 'OK', onPress: onPressOk,
-        },
-      ],
-    );
+    Alert.alert('アラートを出しました', 'テキストテキストテキストテキスト', [
+      {
+        text: 'Cancel',
+        onPress: () =>
+          console.log('アラートのcancelをタップした時の挙動を書く'),
+        style: 'cancel',
+      },
+      {
+        text: 'OK',
+        onPress: onPressOk,
+      },
+    ]);
   };
 
   const onPressOk = () => {
@@ -52,8 +45,8 @@ function TimeSelectionScreen({ navigation }) {
     <View style={{ flex: 1 }}>
       <TimeLineGrid />
       <Button
-        title="OK"
-        type="outline"
+        title='OK'
+        type='outline'
         raised
         titleStyle={{ color: 'blue' }}
         buttonStyle={{
@@ -64,8 +57,8 @@ function TimeSelectionScreen({ navigation }) {
       />
       <View style={styles.container}>
         <Button
-          title="クリア"
-          type="outline"
+          title='クリア'
+          type='outline'
           raised
           titleStyle={{ color: 'blue' }}
           buttonStyle={{
@@ -78,8 +71,8 @@ function TimeSelectionScreen({ navigation }) {
           onPress={onPressClearButton}
         />
         <Button
-          title="Back"
-          type="outline"
+          title='Back'
+          type='outline'
           raised
           titleStyle={{ color: 'blue' }}
           buttonStyle={{

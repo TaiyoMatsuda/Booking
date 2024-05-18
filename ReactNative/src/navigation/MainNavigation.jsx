@@ -44,69 +44,70 @@ function MainNavigation() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => getTabBarIcon(route.name, focused, color, size),
+        tabBarIcon: ({ focused, color, size }) =>
+          getTabBarIcon(route.name, focused, color, size),
         headerShown: false,
       })}
     >
-      <Tab.Screen name="Home">
+      <Tab.Screen name='Home'>
         {() => (
           <HomeStack.Navigator>
             <HomeStack.Screen
-              name="HomeScreen"
+              name='HomeScreen'
               component={HomeScreen}
               options={{ headerShown: false }}
             />
           </HomeStack.Navigator>
         )}
       </Tab.Screen>
-      <Tab.Screen name="Reservation">
+      <Tab.Screen name='Reservation'>
         {() => (
           <ReservationStack.Navigator>
             <ReservationStack.Screen
-              name="ReservationScreen"
+              name='ReservationScreen'
               component={ReservationScreen}
               options={{ headerShown: false }}
             />
             <ReservationStack.Screen
-              name="TimeSelectionScreen"
+              name='TimeSelectionScreen'
               component={TimeSelectionScreen}
               options={{ headerShown: false }}
             />
           </ReservationStack.Navigator>
         )}
       </Tab.Screen>
-      <Tab.Screen name="History">
+      <Tab.Screen name='History'>
         {() => (
           <HistoryStack.Navigator>
             <HistoryStack.Screen
-              name="HistoryScreen"
+              name='HistoryScreen'
               component={HistoryScreen}
               options={{ headerShown: false }}
             />
           </HistoryStack.Navigator>
         )}
       </Tab.Screen>
-      <Tab.Screen name="QR">
+      <Tab.Screen name='QR'>
         {() => (
           <QRStack.Navigator>
             <QRStack.Screen
-              name="QRScreen"
+              name='QRScreen'
               component={QRScreen}
               options={{ headerShown: false }}
             />
           </QRStack.Navigator>
         )}
       </Tab.Screen>
-      <Tab.Screen name="User">
+      <Tab.Screen name='User'>
         {() => (
           <UserStack.Navigator>
             <UserStack.Screen
-              name="UserScreen"
+              name='UserScreen'
               component={UserScreen}
               options={{ headerShown: false }}
             />
             <UserStack.Screen
-              name="SelectionPlanScreen"
+              name='SelectionPlanScreen'
               component={SelectionPlanScreen}
               options={{ headerShown: false }}
             />

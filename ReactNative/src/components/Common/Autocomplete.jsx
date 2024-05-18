@@ -27,14 +27,14 @@ function Autocomplete() {
         data={data}
         search
         maxHeight={300}
-        labelField="label"
-        valueField="value"
+        labelField='label'
+        valueField='value'
         placeholder={!isFocus && '店舗選択'}
-        searchPlaceholder="検索..."
+        searchPlaceholder='検索...'
         value={value}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
-        onChange={(item) => {
+        onChange={item => {
           setValue(item.value);
           setIsFocus(false);
         }}

@@ -6,15 +6,17 @@ function HistoryButton({ onPress }) {
   return (
     <TouchableOpacity onPress={onPress}>
       <Card
-        mode="outlined"
+        mode='outlined'
         containerStyle={{
           alignItems: 'center',
           borderColor: 'blue',
           borderWidth: 1,
         }}
       >
-        <Card.Title h4 style={{ color: 'blue' }}>履歴</Card.Title>
-        <Icon name="time-outline" size={100} style={{ color: 'blue' }} />
+        <Card.Title h4 style={{ color: 'blue' }}>
+          履歴
+        </Card.Title>
+        <Icon name='time-outline' size={100} style={{ color: 'blue' }} />
       </Card>
     </TouchableOpacity>
   );

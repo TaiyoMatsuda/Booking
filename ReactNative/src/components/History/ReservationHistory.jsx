@@ -1,28 +1,20 @@
-import {
-  Alert,
-  View,
-  Text,
-  StyleSheet,
-} from 'react-native';
+import { Alert, View, Text, StyleSheet } from 'react-native';
 import { Divider } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/AntDesign';
 import CloseButton from '../Common/CloseButton';
 
 export default function ReservationHistory({ reservation }) {
   const onPressCancelButton = () => {
-    Alert.alert(
-      'キャンセルしますか？',
-      '',
-      [
-        {
-          text: '閉じる',
-          onPress: () => console.log('閉じるをタップした時の挙動を書く'),
-        },
-        {
-          text: 'キャンセル', onPress: () => console.log('キャンセルをタップした時の挙動を書く'),
-        },
-      ],
-    );
+    Alert.alert('キャンセルしますか？', '', [
+      {
+        text: '閉じる',
+        onPress: () => console.log('閉じるをタップした時の挙動を書く'),
+      },
+      {
+        text: 'キャンセル',
+        onPress: () => console.log('キャンセルをタップした時の挙動を書く'),
+      },
+    ]);
   };
 
   const margin = {
@@ -45,11 +37,15 @@ export default function ReservationHistory({ reservation }) {
           <Text style={styles.textLarge}>{reservation.work_out_time}</Text>
         </View>
         <View>
-          {
-            reservation.is_cancel
-              ? <CloseButton size={35} margin={margin} onPress={onPressCancelButton} />
-              : <Icon name="check" size={40} color="green" />
-          }
+          {reservation.is_cancel ? (
+            <CloseButton
+              size={35}
+              margin={margin}
+              onPress={onPressCancelButton}
+            />
+          ) : (
+            <Icon name='check' size={40} color='green' />
+          )}
         </View>
       </View>
     </View>
