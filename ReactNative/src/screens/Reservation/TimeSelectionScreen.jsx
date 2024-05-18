@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Alert, View, StyleSheet, Dimensions } from 'react-native';
 import { useRecoilState } from 'recoil';
 import { Button } from '@rneui/themed';
-import TimeLineGrid from '../../components/Reservation/TimeLineGrid';
+import TimeLineGrid from '../../components/Reservation/TimeSelection/TimeLineGrid';
 import { timeSlotsStatus } from '../../recoil/timeSlotsStatus';
 import { selectedTimes } from '../../recoil/selectedTimes';
 

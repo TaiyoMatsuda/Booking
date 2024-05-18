@@ -1,7 +1,7 @@
 import { useRecoilState } from 'recoil';
 import { StyleSheet, View } from 'react-native';
 import RoomTimeButton from './RoomTimeButton';
-import { selectedTimes } from '../../recoil/selectedTimes';
+import { selectedTimes } from '../../../recoil/selectedTimes';
 
 const generateTimeSlotsForRoom = room => {
   const slots = [];

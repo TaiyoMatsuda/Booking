@@ -2,7 +2,7 @@ import { StyleSheet, View } from 'react-native';
 import { useState, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 import { Button, Text } from '@rneui/themed';
-import { selectedTimes } from '../../recoil/selectedTimes';
+import { selectedTimes } from '../../../recoil/selectedTimes';
 
 function RoomForm({ onPress }) {
   const selectedItems = useRecoilValue(selectedTimes);

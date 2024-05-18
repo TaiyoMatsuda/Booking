@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { Text } from '@rneui/themed';
-import Autocomplete from '../Common/Autocomplete';
+import Autocomplete from '../../Common/Autocomplete';
 
 function PlaceForm() {
   return (
