@@ -16,12 +16,9 @@ function RoomForm({ onPress }) {
       setSelectedStartTime('');
       setSelectedEndTime('');
     } else {
-      const sortedTmpRoomTime = [...tmpRoomTime].sort(
-        (a, b) => a.timeSlotId - b.timeSlotId,
-      );
-      setSelectedRoom(sortedTmpRoomTime[0].room);
-      setSelectedStartTime(sortedTmpRoomTime[0].startTime);
-      setSelectedEndTime(sortedTmpRoomTime[length - 1].endTime);
+      setSelectedRoom(tmpRoomTime[0].room);
+      setSelectedStartTime(tmpRoomTime[0].startTime);
+      setSelectedEndTime(tmpRoomTime[length - 1].endTime);
     }
   }, [tmpRoomTime]);
 

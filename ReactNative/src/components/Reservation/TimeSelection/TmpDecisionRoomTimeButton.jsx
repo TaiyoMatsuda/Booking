@@ -63,7 +63,10 @@ function TmpDecisionRoomTimeButton({ navigation }) {
   };
 
   const onPressOk = () => {
-    setTmpDecisionRoomTime(selectedItems);
+    const sortedTimeSlots = [...selectedItems].sort(
+      (a, b) => a.timeSlotId - b.timeSlotId,
+    );
+    setTmpDecisionRoomTime(sortedTimeSlots);
     navigation.goBack();
   };
 
