@@ -2,21 +2,29 @@ import { StyleSheet, View } from 'react-native';
 import { useState, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 import { Button, Text } from '@rneui/themed';
-import { selectedTimes } from '../../../recoil/selectedTimes';
+import { tmpDecisionRoomTime } from '../../../recoil/tmpDecisionRoomTime';
 
 function RoomForm({ onPress }) {
-  const selectedItems = useRecoilValue(selectedTimes);
+  const tmpRoomTime = useRecoilValue(tmpDecisionRoomTime);
   const [selectedRoom, setSelectedRoom] = useState('');
   const [selectedStartTime, setSelectedStartTime] = useState('');
   const [selectedEndTime, setSelectedEndTime] = useState('');
   useEffect(() => {
-    const { length } = selectedItems;
-    if (length !== 0) {
-      setSelectedRoom(selectedItems[0].room);
-      setSelectedStartTime(selectedItems[0].startTime);
-      setSelectedEndTime(selectedItems[length - 1].endTime);
+    const { length } = tmpRoomTime;
+    if (length === 0) {
+      setSelectedRoom('');
+      setSelectedStartTime('');
+      setSelectedEndTime('');
+    } else {
+      const sortedTmpRoomTime = [...tmpRoomTime].sort(
+        (a, b) => a.timeSlotId - b.timeSlotId,
+      );
+      setSelectedRoom(sortedTmpRoomTime[0].room);
+      setSelectedStartTime(sortedTmpRoomTime[0].startTime);
+      setSelectedEndTime(sortedTmpRoomTime[length - 1].endTime);
     }
-  }, [selectedItems]);
+  }, [tmpRoomTime]);
+
   return (
     <View style={styles.container}>
       <Text h4>{`部屋: ${selectedRoom}`}</Text>

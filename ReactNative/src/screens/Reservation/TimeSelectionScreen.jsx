@@ -1,41 +1,23 @@
 import { useEffect } from 'react';
-import { Alert, View, StyleSheet, Dimensions } from 'react-native';
-import { useRecoilState } from 'recoil';
+import { View, StyleSheet, Dimensions } from 'react-native';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import { Button } from '@rneui/themed';
 import TimeLineGrid from '../../components/Reservation/TimeSelection/TimeLineGrid';
 import { timeSlotsStatus } from '../../recoil/timeSlotsStatus';
 import { selectedTimes } from '../../recoil/selectedTimes';
 
+import TmpDecisionRoomTimeButton from '../../components/Reservation/TimeSelection/TmpDecisionRoomTimeButton';
+
 const screenWidth = Dimensions.get('window').width;
 
 function TimeSelectionScreen({ navigation }) {
   const [isClear, setClear] = useRecoilState(timeSlotsStatus);
-  const [selectedItems, setSelectedItems] = useRecoilState(selectedTimes);
+  const setSelectedItems = useSetRecoilState(selectedTimes);
 
   useEffect(() => {
     setSelectedItems([]);
     setClear(false);
   }, [isClear, setClear]);
-
-  const onPressOKButton = () => {
-    Alert.alert('アラートを出しました', 'テキストテキストテキストテキスト', [
-      {
-        text: 'Cancel',
-        onPress: () =>
-          console.log('アラートのcancelをタップした時の挙動を書く'),
-        style: 'cancel',
-      },
-      {
-        text: 'OK',
-        onPress: onPressOk,
-      },
-    ]);
-  };
-
-  const onPressOk = () => {
-    console.log('アラートのOK_onPressOk:' + JSON.stringify(selectedItems));
-    setSelectedItems([]);
-  };
 
   const onPressClearButton = () => {
     setClear(true);
@@ -44,17 +26,7 @@ function TimeSelectionScreen({ navigation }) {
   return (
     <View style={{ flex: 1 }}>
       <TimeLineGrid />
-      <Button
-        title='OK'
-        type='outline'
-        raised
-        titleStyle={{ color: 'blue' }}
-        buttonStyle={{
-          backgroundColor: 'white',
-          borderColor: 'blue',
-        }}
-        onPress={onPressOKButton}
-      />
+      <TmpDecisionRoomTimeButton navigation={navigation} />
       <View style={styles.container}>
         <Button
           title='クリア'
