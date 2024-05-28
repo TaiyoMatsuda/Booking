@@ -1,5 +1,8 @@
+import { memo } from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
 import RoomColumn from './RoomColumn';
+
+const RoomColumnMemo = memo(RoomColumn);
 
 export default function TimeLineGrid() {
   const rooms = ['A', 'B', 'C', 'D', 'E'];
@@ -9,7 +12,7 @@ export default function TimeLineGrid() {
       <ScrollView>
         <ScrollView horizontal style={styles.horizontalScroll}>
           {rooms.map(room => (
-            <RoomColumn key={room} room={room} />
+            <RoomColumnMemo key={room} room={room} />
           ))}
         </ScrollView>
       </ScrollView>
