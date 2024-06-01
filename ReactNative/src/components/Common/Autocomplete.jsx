@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
+import { useSetRecoilState } from 'recoil';
 import { Dropdown } from 'react-native-element-dropdown';
+import { selectedTimes } from '../../recoil/selectedTimes';
+import { tmpDecisionRoomTime } from '../../recoil/tmpDecisionRoomTime';
 
 const data = [
   { label: 'Item 1', value: '1' },
@@ -16,6 +19,17 @@ const data = [
 function Autocomplete() {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
+  const setSelectedItems = useSetRecoilState(selectedTimes);
+  const setTmpDecisionRoomTime = useSetRecoilState(tmpDecisionRoomTime);
+
+  const changeStore = item => {
+    if (item.value !== value) {
+      setValue(item.value);
+      setSelectedItems([]);
+      setTmpDecisionRoomTime([]);
+    }
+    setIsFocus(false);
+  };
 
   return (
     <View style={styles.container}>
@@ -34,10 +48,7 @@ function Autocomplete() {
         value={value}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
-        onChange={item => {
-          setValue(item.value);
-          setIsFocus(false);
-        }}
+        onChange={changeStore}
       />
     </View>
   );
