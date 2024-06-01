@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import { View, TouchableOpacity } from 'react-native';
+import { useSetRecoilState } from 'recoil';
 import { Card, Text } from '@rneui/themed';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { format } from 'date-fns';
+import { selectedTimes } from '../../recoil/selectedTimes';
 
 function DatePickerInput() {
   const [date, setDate] = useState(new Date());
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const setSelectedItems = useSetRecoilState(selectedTimes);
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
@@ -17,8 +20,11 @@ function DatePickerInput() {
     setDatePickerVisibility(false);
   };
 
-  const handleConfirm = date => {
-    setDate(date);
+  const handleConfirm = selectedDate => {
+    if (date.toDateString() !== selectedDate.toDateString()) {
+      setSelectedItems([]);
+      setDate(selectedDate);
+    }
     hideDatePicker();
   };
 
