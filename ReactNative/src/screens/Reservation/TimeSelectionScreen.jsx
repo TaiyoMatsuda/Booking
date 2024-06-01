@@ -45,7 +45,7 @@ function TimeSelectionScreen({ navigation }) {
           onPress={onPressClearButton}
         />
         <Button
-          title='Back'
+          title='戻る'
           type='outline'
           raised
           titleStyle={{ color: 'blue' }}
