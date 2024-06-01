@@ -7,7 +7,6 @@ import { selectedTimes } from '../../../recoil/selectedTimes';
 export default function RoomColumn({ room }) {
   const [selectedItems, setSelectedItems] = useRecoilState(selectedTimes);
   const items = useMemo(() => {
-    console.log('Generating time slots for room:', room);
     const slots = [];
     let timeSlotId = 1;
     for (let hour = 0; hour < 24; hour++) {

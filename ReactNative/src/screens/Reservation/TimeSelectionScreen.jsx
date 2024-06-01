@@ -15,8 +15,10 @@ function TimeSelectionScreen({ navigation }) {
   const setSelectedItems = useSetRecoilState(selectedTimes);
 
   useEffect(() => {
-    setSelectedItems([]);
-    setClear(false);
+    if (isClear) {
+      setSelectedItems([]);
+      setClear(false);
+    }
   }, [isClear, setClear]);
 
   const onPressClearButton = () => {

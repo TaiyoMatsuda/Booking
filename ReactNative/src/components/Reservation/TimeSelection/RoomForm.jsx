@@ -2,10 +2,10 @@ import { StyleSheet, View } from 'react-native';
 import { useState, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 import { Button, Text } from '@rneui/themed';
-import { tmpDecisionRoomTime } from '../../../recoil/tmpDecisionRoomTime';
+import { selectedTimes } from '../../../recoil/selectedTimes';
 
 function RoomForm({ onPress }) {
-  const tmpRoomTime = useRecoilValue(tmpDecisionRoomTime);
+  const tmpRoomTime = useRecoilValue(selectedTimes);
   const [selectedRoom, setSelectedRoom] = useState('');
   const [selectedStartTime, setSelectedStartTime] = useState('');
   const [selectedEndTime, setSelectedEndTime] = useState('');
