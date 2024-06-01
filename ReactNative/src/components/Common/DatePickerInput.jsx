@@ -6,11 +6,13 @@ import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { format } from 'date-fns';
 import { selectedTimes } from '../../recoil/selectedTimes';
+import { tmpDecisionRoomTime } from '../../recoil/tmpDecisionRoomTime';
 
 function DatePickerInput() {
   const [date, setDate] = useState(new Date());
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const setSelectedItems = useSetRecoilState(selectedTimes);
+  const setTmpDecisionRoomTime = useSetRecoilState(tmpDecisionRoomTime);
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
@@ -23,6 +25,7 @@ function DatePickerInput() {
   const handleConfirm = selectedDate => {
     if (date.toDateString() !== selectedDate.toDateString()) {
       setSelectedItems([]);
+      setTmpDecisionRoomTime([]);
       setDate(selectedDate);
     }
     hideDatePicker();

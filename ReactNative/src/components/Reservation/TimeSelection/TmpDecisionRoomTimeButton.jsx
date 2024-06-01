@@ -1,10 +1,12 @@
 import { Alert } from 'react-native';
 import { Button } from '@rneui/themed';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { selectedTimes } from '../../../recoil/selectedTimes';
+import { tmpDecisionRoomTime } from '../../../recoil/tmpDecisionRoomTime';
 
 function TmpDecisionRoomTimeButton({ navigation }) {
-  const [selectedItems, setSelectedItems] = useRecoilState(selectedTimes);
+  const selectedItems = useRecoilValue(selectedTimes);
+  const setTmpDecisionRoomTime = useSetRecoilState(tmpDecisionRoomTime);
 
   const onPressOKButton = () => {
     const { length } = selectedItems;
@@ -64,7 +66,7 @@ function TmpDecisionRoomTimeButton({ navigation }) {
     const sortedTimeSlots = [...selectedItems].sort(
       (a, b) => a.timeSlotId - b.timeSlotId,
     );
-    setSelectedItems(sortedTimeSlots);
+    setTmpDecisionRoomTime(sortedTimeSlots);
     navigation.goBack();
   };
 

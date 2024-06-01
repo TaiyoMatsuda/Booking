@@ -1,13 +1,23 @@
 import { View, StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
 import { Button, Text } from '@rneui/themed';
 import DayForm from '../../components/Reservation/Reservation/DayForm';
 import RoomForm from '../../components/Reservation/TimeSelection/RoomForm';
 import RentCard from '../../components/Reservation/Reservation/RentCard';
 import PlaceForm from '../../components/Reservation/Reservation/PlaceForm';
+import { selectedTimes } from '../../recoil/selectedTimes';
+import { tmpDecisionRoomTime } from '../../recoil/tmpDecisionRoomTime';
 
 const screenWidth = Dimensions.get('window').width;
 
 function ReservationScreen({ navigation }) {
+  const tmpRoomTime = useRecoilValue(tmpDecisionRoomTime);
+  const setSelectedItems = useSetRecoilState(selectedTimes);
+
+  const moveRoomTimeSelectionScreen = () => {
+    setSelectedItems(tmpRoomTime);
+    navigation.navigate('TimeSelectionScreen');
+  };
   return (
     <>
       <View style={{ alignItems: 'left', marginHorizontal: 20 }}>
@@ -18,9 +28,7 @@ function ReservationScreen({ navigation }) {
           <View>
             <PlaceForm />
             <DayForm />
-            <RoomForm
-              onPress={() => navigation.navigate('TimeSelectionScreen')}
-            />
+            <RoomForm onPress={moveRoomTimeSelectionScreen} />
             <RentCard />
           </View>
         </View>
