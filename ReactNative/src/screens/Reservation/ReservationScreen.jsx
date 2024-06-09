@@ -116,10 +116,18 @@ function ReservationScreen({ navigation }) {
       </View>
       <ScrollView>
         <View style={{ flex: 1, justifyContent: 'space-evenly' }}>
+          <View style={{ alignItems: 'left', marginHorizontal: 20 }}>
+            <View style={styles.formContainer}>
+              <StoreForm />
+            </View>
+            <View style={styles.formContainer}>
+              <DayForm />
+            </View>
+            <View style={styles.formContainer}>
+              <RoomForm onPress={moveRoomTimeSelectionScreen} />
+            </View>
+          </View>
           <View>
-            <StoreForm />
-            <DayForm />
-            <RoomForm onPress={moveRoomTimeSelectionScreen} />
             <RentCard />
           </View>
         </View>
@@ -160,6 +168,10 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'center',
+  },
+  formContainer: {
+    marginVertical: 10,
+    width: '100%',
   },
 });
 

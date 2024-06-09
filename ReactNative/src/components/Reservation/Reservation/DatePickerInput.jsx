@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { useSetRecoilState, useRecoilState } from 'recoil';
 import { Card, Text } from '@rneui/themed';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
@@ -42,17 +42,9 @@ function DatePickerInput() {
 
   return (
     <TouchableOpacity onPress={showDatePicker}>
-      <Card
-        mode='outlined'
-        containerStyle={{
-          margin: 0,
-          padding: 0,
-          borderWidth: 1,
-          borderColor: 'blue',
-        }}
-      >
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          <Text h4>{formatDate()}</Text>
+      <Card mode='outlined' containerStyle={styles.cardContainer}>
+        <View style={styles.cardContent}>
+          <Text style={styles.text}>{formatDate()}</Text>
           <Icon name='calendar-outline' color='blue' size={25} />
         </View>
         <DateTimePickerModal
@@ -72,3 +64,24 @@ function DatePickerInput() {
 }
 
 export default DatePickerInput;
+
+const styles = StyleSheet.create({
+  cardContainer: {
+    margin: 0,
+    padding: 0,
+    borderWidth: 1,
+    borderColor: 'blue',
+    borderRadius: 8,
+    height: 50,
+  },
+  cardContent: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    height: '100%',
+  },
+  text: {
+    fontSize: 16,
+  },
+});

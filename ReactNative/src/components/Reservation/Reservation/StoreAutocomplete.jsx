@@ -44,7 +44,7 @@ function StoreAutocomplete() {
         maxHeight={300}
         labelField='label'
         valueField='value'
-        placeholder={!isFocus && '店舗選択'}
+        placeholder={!isFocus ? '店舗選択' : ''}
         searchPlaceholder='検索...'
         value={bookedStore}
         onFocus={() => setIsFocus(true)}
@@ -60,21 +60,14 @@ export default StoreAutocomplete;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
+    marginVertical: 10,
   },
   dropdown: {
     height: 50,
     borderColor: 'gray',
-    borderWidth: 0.5,
+    borderWidth: 1,
+    borderRadius: 8,
     paddingHorizontal: 8,
-  },
-  label: {
-    position: 'absolute',
-    backgroundColor: 'white',
-    left: 22,
-    top: 8,
-    zIndex: 999,
-    paddingHorizontal: 8,
-    fontSize: 14,
   },
   placeholderStyle: {
     fontSize: 16,
