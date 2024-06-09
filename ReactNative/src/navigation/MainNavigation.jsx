@@ -49,7 +49,7 @@ function MainNavigation() {
         headerShown: false,
       })}
     >
-      <Tab.Screen name='Home'>
+      <Tab.Screen name='Home' options={{ title: 'ホーム' }}>
         {() => (
           <HomeStack.Navigator>
             <HomeStack.Screen
@@ -60,7 +60,7 @@ function MainNavigation() {
           </HomeStack.Navigator>
         )}
       </Tab.Screen>
-      <Tab.Screen name='Reservation'>
+      <Tab.Screen name='Reservation' options={{ title: '予約' }}>
         {() => (
           <ReservationStack.Navigator>
             <ReservationStack.Screen
@@ -76,7 +76,7 @@ function MainNavigation() {
           </ReservationStack.Navigator>
         )}
       </Tab.Screen>
-      <Tab.Screen name='History'>
+      <Tab.Screen name='History' options={{ title: '履歴' }}>
         {() => (
           <HistoryStack.Navigator>
             <HistoryStack.Screen
@@ -87,7 +87,7 @@ function MainNavigation() {
           </HistoryStack.Navigator>
         )}
       </Tab.Screen>
-      <Tab.Screen name='QR'>
+      <Tab.Screen name='QR' options={{ title: 'QR' }}>
         {() => (
           <QRStack.Navigator>
             <QRStack.Screen
@@ -98,7 +98,7 @@ function MainNavigation() {
           </QRStack.Navigator>
         )}
       </Tab.Screen>
-      <Tab.Screen name='User'>
+      <Tab.Screen name='User' options={{ title: '会員' }}>
         {() => (
           <UserStack.Navigator>
             <UserStack.Screen
