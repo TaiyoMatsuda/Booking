@@ -9,14 +9,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import signInStatus from './src/recoil/signInStatus';
 import MainNavigation from './src/navigation/MainNavigation';
 import AuthNavigation from './src/navigation/AuthNavigation';
-import LaunchScreen from './src/screens/Auth/LaunchScreen';
 
 SplashScreen.preventAutoHideAsync();
 
 function AppContent() {
   const isSignedIn = useRecoilValue(signInStatus);
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const checkSignInStatus = async () => {
@@ -40,7 +38,6 @@ function AppContent() {
       } catch (error) {
         setUser(false);
       } finally {
-        //setLoading(false);
         SplashScreen.hideAsync();
       }
     };
@@ -52,10 +49,6 @@ function AppContent() {
     console.log('useEffect:' + JSON.stringify(isSignedIn));
     setUser(isSignedIn);
   }, [isSignedIn]);
-
-  // if (loading) {
-  //   return <LaunchScreen />;
-  // }
 
   return (
     <SafeAreaView style={styles.safeArea}>
