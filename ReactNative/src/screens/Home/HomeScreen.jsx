@@ -57,7 +57,8 @@ function HomeScreen({ navigation }) {
   return (
     <>
       <View style={styles.containerHeader}>
-        <Text h2>{`Hello, ${userName}!`}</Text>
+        <Text h4>{`こんにちは
+        ${userName} 様!`}</Text>
         <LogOutButton onPress={onPressLogOutButton} />
       </View>
       <ScrollView>
