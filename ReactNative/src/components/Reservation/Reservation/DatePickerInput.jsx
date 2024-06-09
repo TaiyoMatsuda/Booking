@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { View, TouchableOpacity } from 'react-native';
-import { useSetRecoilState } from 'recoil';
+import { useSetRecoilState, useRecoilState } from 'recoil';
 import { Card, Text } from '@rneui/themed';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { format } from 'date-fns';
-import { selectedTimes } from '../../recoil/selectedTimes';
-import { tmpDecisionRoomTime } from '../../recoil/tmpDecisionRoomTime';
+import { selectedTimes } from '../../../recoil/selectedTimes';
+import { tmpDecisionRoomTime } from '../../../recoil/tmpDecisionRoomTime';
+import { tmpBookedDate } from '../../../recoil/tmpBookedDate';
 
 function DatePickerInput() {
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useRecoilState(tmpBookedDate);
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const setSelectedItems = useSetRecoilState(selectedTimes);
   const setTmpDecisionRoomTime = useSetRecoilState(tmpDecisionRoomTime);
@@ -35,6 +36,10 @@ function DatePickerInput() {
     return format(date, 'yyyy/MM/dd');
   }
 
+  const minimumDate = new Date();
+  const maximumDate = new Date();
+  maximumDate.setMonth(maximumDate.getMonth() + 1);
+
   return (
     <TouchableOpacity onPress={showDatePicker}>
       <Card
@@ -55,6 +60,8 @@ function DatePickerInput() {
           mode='date'
           onConfirm={handleConfirm}
           onCancel={hideDatePicker}
+          minimumDate={minimumDate}
+          maximumDate={maximumDate}
           cancelTextIOS='キャンセル'
           confirmTextIOS='確認'
           locale='ja'

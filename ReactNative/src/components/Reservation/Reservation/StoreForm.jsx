@@ -1,14 +1,14 @@
 import { View } from 'react-native';
 import { Text } from '@rneui/themed';
-import Autocomplete from '../../Common/Autocomplete';
+import StoreAutocomplete from './StoreAutocomplete';
 
-function PlaceForm() {
+function StoreForm() {
   return (
     <View>
       <Text h4>店舗:</Text>
-      <Autocomplete />
+      <StoreAutocomplete />
     </View>
   );
 }
 
-export default PlaceForm;
+export default StoreForm;

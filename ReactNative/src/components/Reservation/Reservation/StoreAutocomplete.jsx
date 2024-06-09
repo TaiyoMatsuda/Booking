@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { useSetRecoilState } from 'recoil';
+import { useSetRecoilState, useRecoilState } from 'recoil';
 import { Dropdown } from 'react-native-element-dropdown';
-import { selectedTimes } from '../../recoil/selectedTimes';
-import { tmpDecisionRoomTime } from '../../recoil/tmpDecisionRoomTime';
+import { selectedTimes } from '../../../recoil/selectedTimes';
+import { tmpDecisionRoomTime } from '../../../recoil/tmpDecisionRoomTime';
+import { tmpBookedStore } from '../../../recoil/tmpBookedStore';
 
 const data = [
   { label: 'Item 1', value: '1' },
@@ -16,15 +17,15 @@ const data = [
   { label: 'Item 8', value: '8' },
 ];
 
-function Autocomplete() {
-  const [value, setValue] = useState(null);
+function StoreAutocomplete() {
+  const [bookedStore, setBookedStore] = useRecoilState(tmpBookedStore);
   const [isFocus, setIsFocus] = useState(false);
   const setSelectedItems = useSetRecoilState(selectedTimes);
   const setTmpDecisionRoomTime = useSetRecoilState(tmpDecisionRoomTime);
 
   const changeStore = item => {
-    if (item.value !== value) {
-      setValue(item.value);
+    if (item.value !== bookedStore) {
+      setBookedStore(item.value);
       setSelectedItems([]);
       setTmpDecisionRoomTime([]);
     }
@@ -45,7 +46,7 @@ function Autocomplete() {
         valueField='value'
         placeholder={!isFocus && '店舗選択'}
         searchPlaceholder='検索...'
-        value={value}
+        value={bookedStore}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
         onChange={changeStore}
@@ -54,7 +55,7 @@ function Autocomplete() {
   );
 }
 
-export default Autocomplete;
+export default StoreAutocomplete;
 
 const styles = StyleSheet.create({
   container: {
