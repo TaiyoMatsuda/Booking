@@ -22,10 +22,14 @@ async def create_rental_product(rental_product_body: rental_product_schema.Renta
 async def update_rental_product(rental_product_id: int, rental_product_body: rental_product_schema.RentalProductCreate, db: AsyncSession = Depends(get_db)):
     rental_product = await rental_product_crud.get_task(db, rental_product_id=rental_product_id)
     if rental_product is None:
-        raise HTTPException(status_code=404, detail="Task not found")
+        raise HTTPException(status_code=404, detail="Rental Product not found")
 
     return await rental_product_crud.update_retntal_product(db, rental_product_body, original=rental_product)
 
 @router.delete("/rental-products/{rental_product_id}", response_model=None)
-async def delete_rental_product(task_id: int):
-    return
+async def delete_rental_product(rental_product_id: int, db: AsyncSession = Depends(get_db)):
+    rental_product = await rental_product_crud.get_task(db, rental_product_id=rental_product_id)
+    if rental_product is None:
+        raise HTTPException(status_code=404, detail="Rental Product not found")
+
+    return await rental_product_crud.delete_rental_product(db, original=rental_product)

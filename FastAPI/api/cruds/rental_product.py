@@ -45,3 +45,7 @@ async def update_retntal_product(
     await db.commit()
     await db.refresh(original)
     return original
+
+async def delete_rental_product(db: AsyncSession, original: retntal_product_model.RentalProduct) -> None:
+    await db.delete(original)
+    await db.commit()
