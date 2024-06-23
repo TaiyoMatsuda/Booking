@@ -11,9 +11,8 @@ router = APIRouter()
 
 
 @router.get("/rental-products", response_model=List[rental_product_schema.RentalProduct])
-async def list_rental_products():
-    return [rental_product_schema.RentalProduct(id=1, name="ドライバー", price=500)]
-
+async def list_rental_products(db: AsyncSession = Depends(get_db)):
+    return await rental_product_crud.get_rental_products(db)
 
 @router.post("/rental-products", response_model=rental_product_schema.RentalProductCreateResponse)
 async def create_rental_product(rental_product_body: rental_product_schema.RentalProductCreate, db: AsyncSession = Depends(get_db)):
