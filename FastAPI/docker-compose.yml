@@ -6,13 +6,3 @@ services:
       - .:/src
     ports:
       - 8000:8000
-    entrypoint:
-      [
-        "poetry",
-        "run",
-        "uvicorn",
-        "api.main:app",
-        "--host",
-        "0.0.0.0",
-        "--reload",
-      ]
