@@ -10,8 +10,8 @@ class RentalProductBase(BaseModel):
 class RentalProduct(RentalProductBase):
     id: int = Field(..., description="id")
 
-    class Config:
-        orm_mode = True
+    class ConfigDict:
+        from_attributes = True
 
 class RentalProductCreate(RentalProductBase):
     pass
@@ -19,5 +19,5 @@ class RentalProductCreate(RentalProductBase):
 class RentalProductCreateResponse(RentalProductCreate):
     id: int = Field(..., description="id")
 
-    class Config:
-        orm_mode = True
+    class ConfigDict:
+        from_attributes = True

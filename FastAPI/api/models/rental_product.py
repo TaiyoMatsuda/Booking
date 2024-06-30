@@ -1,7 +1,6 @@
 from sqlalchemy import Column, Integer, String
 
-from api.db import Base
-
+from .base import Base
 
 class RentalProduct(Base):
     __tablename__ = "rental_products"
